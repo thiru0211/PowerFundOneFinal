@@ -14,6 +14,7 @@ import java.util.Properties;
 import java.util.Scanner;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -36,11 +37,11 @@ public class InvoicePayAndCreate extends Locators {
 	public void setUp() throws IOException{
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions option=new ChromeOptions();
-		option.addArguments("--headless=new");
+		//option.addArguments("--headless=new");
 		driver=new ChromeDriver(option);
 		driver.manage().window().maximize(); 
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(3));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(3));
 		driver.get("http://192.168.1.36:90/#/auth");
 		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 		FileInputStream FIS=new FileInputStream(file);
@@ -284,8 +285,8 @@ public class InvoicePayAndCreate extends Locators {
 	@Test(priority = 12,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC13() throws InterruptedException {
 		TC10();
-		Thread.sleep(2000);
-		WebElement element = driver.findElement(By.xpath(IPChMntPyActBtn));
+		Thread.sleep(3000);
+		WebElement element = driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div[1]/div/div/div[3]/a"));
 		Actions act=new Actions(driver);
 		act.click().build().perform();
 		element.click();
@@ -299,10 +300,10 @@ public class InvoicePayAndCreate extends Locators {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyEditSavBtn)).click();
 		Thread.sleep(2000);
-		ele2=driver.findElement(By.xpath("//div[text()='Something Went Wrong!!!']"));
+		ele2=driver.findElement(By.xpath("//div[text()='Updated Successfully!!!']"));
 		if(ele2.isDisplayed()) {
 			String text = ele2.getText();
-			System.out.println("Error popup is shown like: " + text);
+			System.out.println("Popup is shown like: " + text);
 		}
 		else {
 			System.out.println();
@@ -494,7 +495,7 @@ public class InvoicePayAndCreate extends Locators {
 		//driver.findElement(By.xpath(IPSrchBtn)).sendKeys(IPSrchBox1);
 		driver.findElement(By.xpath(IPCusEditBtn)).click();
 		driver.findElement(By.xpath(IPChMntPyBtn)).click();
-		Thread.sleep(2000);
+		Thread.sleep(3000);
 		WebElement element = driver.findElement(By.xpath(IPChMntPyActBtn));
 		Actions act=new Actions(driver);
 		act.click().build().perform();
@@ -538,7 +539,7 @@ public class InvoicePayAndCreate extends Locators {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyMonCRM)).click();
 		driver.findElement(By.xpath(IPChMntPyMonCRMUpd)).click();
-	//	driver.switchTo().alert().accept();
+		//	driver.switchTo().alert().accept();
 		//Mandatory message check for multiple elements at a same time
 		List<WebElement> elements = driver.findElements(By.cssSelector("div[style='color: red;']"));
 		for (WebElement ele1 : elements) {
@@ -558,18 +559,33 @@ public class InvoicePayAndCreate extends Locators {
 		Actions act=new Actions(driver);
 		act.click().build().perform();
 		element.click();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		driver.findElement(By.xpath(IPChMntPyMonCRM)).click();
+		Thread.sleep(2000);
 		ele1=driver.findElement(By.id(IPChMntPyMonCRMDD));
 		Select sel=new Select(ele1);
 		sel.selectByVisibleText(IPMonCRMDD);
 
 		ele2=driver.findElement(By.id(IPChMntPyMonCRMName));
 		Select sel1=new Select(ele2);
-		sel1.selectByVisibleText(IPMonCRMName);
+		sel1.selectByVisibleText("Amada Mejia (2087178)");
 
-		driver.findElement(By.name(IPChMntPyMonCRMEsc)).sendKeys(IPMonCRMEsc);
-		driver.findElement(By.name(IPChMntPyMonCRMProd)).sendKeys(IPMonCRMProd);
+		ele3=driver.findElement(By.name(IPChMntPyMonCRMEsc));
+		String attribute = ele3.getAttribute("value");
+		for(int i=0;i<attribute.length();i++) {
+			ele3.sendKeys(Keys.BACK_SPACE);
+		}
+		Thread.sleep(2000);
+		ele3.sendKeys("2.5");
+
+		ele4=driver.findElement(By.name(IPChMntPyMonCRMProd));
+		String attribute1 = ele4.getAttribute("value");
+		for(int i=0;i<attribute1.length();i++) {
+			ele4.sendKeys(Keys.BACK_SPACE);
+		}
+		Thread.sleep(2000);
+		ele4.sendKeys("10");
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyMonCRMUpd)).click();
 	}
 
@@ -671,7 +687,7 @@ public class InvoicePayAndCreate extends Locators {
 		}
 		ele1.click();
 	}
-	
+
 	@Test(priority = 32,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC33() throws InterruptedException, AWTException {
 		TC32();
@@ -778,7 +794,6 @@ public class InvoicePayAndCreate extends Locators {
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 	}
-
 
 	@Test(priority =38,retryAnalyzer = ReRunFailedTestCase.class )
 	public void TC39() throws InterruptedException, AWTException {

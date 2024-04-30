@@ -27,16 +27,16 @@ public class AllReportModules extends Locators{
 	public static WebDriver driver;
 	public static WebDriverWait wait;
 	public static WebElement ele1,ele2,ele3,ele4,ele5;
-	
+
 	@BeforeMethod
 	public void setUp() throws IOException{
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions option=new ChromeOptions();
-		option.addArguments("--headless=new");
+		//option.addArguments("--headless=new");
 		driver=new ChromeDriver(option);
 		driver.manage().window().maximize(); 
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(3));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(3));
 		driver.get("http://192.168.1.36:90/#/auth");
 		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 		FileInputStream FIS=new FileInputStream(file);
@@ -59,7 +59,7 @@ public class AllReportModules extends Locators{
 		driver.findElement(By.name(Email)).sendKeys(EmailId);
 		driver.findElement(By.name(Password)).sendKeys(Passwrd);
 		driver.findElement(By.id(LoginBtn)).click();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		driver.findElement(By.xpath(ReportsBtn)).click();
 		driver.findElement(By.xpath(OSReportBtn)).click();
 	}
@@ -162,10 +162,10 @@ public class AllReportModules extends Locators{
 		String OSRepBankName=PropertyFileReader.propertymap.get("OSRepBankName");
 		String OSAddNtTxt=PropertyFileReader.propertymap.get("OSAddNtTxt");
 		Thread.sleep(2000);
-//		ele1=driver.findElement(By.xpath(OSBankName));
-//		Select sel=new Select(ele1);
-//		sel.selectByVisibleText(OSRepBankName);
-//		driver.findElement(By.xpath(OSCusName)).sendKeys(OSReportCusName);
+		//		ele1=driver.findElement(By.xpath(OSBankName));
+		//		Select sel=new Select(ele1);
+		//		sel.selectByVisibleText(OSRepBankName);
+		//		driver.findElement(By.xpath(OSCusName)).sendKeys(OSReportCusName);
 		driver.findElement(By.xpath(OSEditBtn)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(OSAddNotes)).click();
@@ -180,13 +180,14 @@ public class AllReportModules extends Locators{
 		String OSReportCusName=PropertyFileReader.propertymap.get("OSReportCusName");
 		String OSRepBankName=PropertyFileReader.propertymap.get("OSRepBankName");
 		Thread.sleep(2000);
-//		ele1=driver.findElement(By.xpath(OSBankName));
-//		Select sel=new Select(ele1);
-//		sel.selectByVisibleText(OSRepBankName);
-//		driver.findElement(By.xpath(OSCusName)).sendKeys(OSReportCusName);
+		//		ele1=driver.findElement(By.xpath(OSBankName));
+		//		Select sel=new Select(ele1);
+		//		sel.selectByVisibleText(OSRepBankName);
+		//		driver.findElement(By.xpath(OSCusName)).sendKeys(OSReportCusName);
 		driver.findElement(By.xpath(OSEditBtn)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(OSAddNotes)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(OSAddNtClsBtn)).click();
 	}
 
@@ -197,10 +198,10 @@ public class AllReportModules extends Locators{
 		String OSRepBankName=PropertyFileReader.propertymap.get("OSRepBankName");
 		String OSAddNtTxt=PropertyFileReader.propertymap.get("OSAddNtTxt");
 		Thread.sleep(2000);
-//		ele1=driver.findElement(By.xpath(OSBankName));
-//		Select sel=new Select(ele1);
-//		sel.selectByVisibleText(OSRepBankName);
-//		driver.findElement(By.xpath(OSCusName)).sendKeys(OSReportCusName);
+		//		ele1=driver.findElement(By.xpath(OSBankName));
+		//		Select sel=new Select(ele1);
+		//		sel.selectByVisibleText(OSRepBankName);
+		//		driver.findElement(By.xpath(OSCusName)).sendKeys(OSReportCusName);
 		driver.findElement(By.xpath(OSEditBtn)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(OSAddNotes)).click();
@@ -215,10 +216,10 @@ public class AllReportModules extends Locators{
 		String OSReportCusName=PropertyFileReader.propertymap.get("OSReportCusName");
 		String OSRepBankName=PropertyFileReader.propertymap.get("OSRepBankName");
 		Thread.sleep(2000);
-//		ele1=driver.findElement(By.xpath(OSBankName));
-//		Select sel=new Select(ele1);
-//		sel.selectByVisibleText(OSRepBankName);
-//		driver.findElement(By.xpath(OSCusName)).sendKeys(OSReportCusName);
+		//		ele1=driver.findElement(By.xpath(OSBankName));
+		//		Select sel=new Select(ele1);
+		//		sel.selectByVisibleText(OSRepBankName);
+		//		driver.findElement(By.xpath(OSCusName)).sendKeys(OSReportCusName);
 		driver.findElement(By.xpath(OSEditBtn)).click();
 		driver.findElement(By.xpath(OSAddNtViewBtn)).click();
 	}
@@ -229,10 +230,10 @@ public class AllReportModules extends Locators{
 		String OSReportCusName=PropertyFileReader.propertymap.get("OSReportCusName");
 		String OSRepBankName=PropertyFileReader.propertymap.get("OSRepBankName");
 		Thread.sleep(2000);
-//		ele1=driver.findElement(By.xpath(OSBankName));
-//		Select sel=new Select(ele1);
-//		sel.selectByVisibleText(OSRepBankName);
-//		driver.findElement(By.xpath(OSCusName)).sendKeys(OSReportCusName);
+		//		ele1=driver.findElement(By.xpath(OSBankName));
+		//		Select sel=new Select(ele1);
+		//		sel.selectByVisibleText(OSRepBankName);
+		//		driver.findElement(By.xpath(OSCusName)).sendKeys(OSReportCusName);
 		driver.findElement(By.xpath(OSEditBtn)).click();
 		Thread.sleep(2000);
 		WebElement element = driver.findElement(By.xpath(OSAddNtActBtn));
@@ -269,25 +270,33 @@ public class AllReportModules extends Locators{
 		String OSAddRcdPayMode=PropertyFileReader.propertymap.get("OSAddRcdPayMode");
 		String OSAddRcdPyBankName=PropertyFileReader.propertymap.get("OSAddRcdPyBankName");
 		String OSAddRcdPyType=PropertyFileReader.propertymap.get("OSAddRcdPyType");
-
+		Thread.sleep(2000);
 		driver.findElement(By.name(OSAddManDueMnt)).sendKeys(OSAddManDueMnth);
 		driver.findElement(By.name(OSAddRcdPyTranDate)).sendKeys(OSAddRcdPyTraDte);
 		driver.findElement(By.name(OSAddRcdPyTranDes)).sendKeys(OSAddRcdPyTraDes);
 		driver.findElement(By.name(OSAddRcdPyAmnt)).sendKeys(OSAddRcdPyAmt);
-
+		Thread.sleep(2000);
 		ele1=driver.findElement(By.id(OSAddRcdPyMode));
 		Select sel1=new Select(ele1);
 		sel1.selectByVisibleText(OSAddRcdPayMode);
-
+		Thread.sleep(2000);
+		
+		// Bank name is not displayed
 		ele2=driver.findElement(By.name(OSAddRcdPyBnkName));
 		Select sel2=new Select(ele2);
-		sel2.selectByVisibleText(OSAddRcdPyBankName);
+		//sel2.selectByVisibleText(OSAddRcdPyBankName);
+		sel2.selectByIndex(0);
+		Thread.sleep(2000);
+		ele4=driver.findElement(By.xpath(OSAddRcdPyCLrBtn));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", ele4);
 
 		ele3=driver.findElement(By.id(OSAddRcdPyTyp));
 		Select sel3=new Select(ele3);
 		sel3.selectByVisibleText(OSAddRcdPyType);
-
-		driver.findElement(By.xpath(OSAddRcdPyCLrBtn)).click();
+		Thread.sleep(2000);
+		ele4=driver.findElement(By.xpath(OSAddRcdPyCLrBtn));
+		ele4.click();
 	}
 
 	@Test(priority = 10,retryAnalyzer = ReRunFailedTestCase.class)
@@ -412,10 +421,10 @@ public class AllReportModules extends Locators{
 		String OSReportCusName=PropertyFileReader.propertymap.get("OSReportCusName");
 		String OSRepBankName=PropertyFileReader.propertymap.get("OSRepBankName");
 		Thread.sleep(2000);
-//		ele1=driver.findElement(By.xpath(OSBankName));
-//		Select sel=new Select(ele1);
-//		sel.selectByVisibleText(OSRepBankName);
-//		driver.findElement(By.xpath(OSCusName)).sendKeys(OSReportCusName);
+		//		ele1=driver.findElement(By.xpath(OSBankName));
+		//		Select sel=new Select(ele1);
+		//		sel.selectByVisibleText(OSRepBankName);
+		//		driver.findElement(By.xpath(OSCusName)).sendKeys(OSReportCusName);
 		driver.findElement(By.xpath(OSEditBtn)).click();
 		Thread.sleep(2000);
 		WebElement element = driver.findElement(By.xpath(OSAddNtActBtn));

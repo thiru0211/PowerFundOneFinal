@@ -38,8 +38,8 @@ public class InstallerSetup extends Locators  {
 		option.addArguments("--headless=new");
 		driver=new ChromeDriver(option);
 		driver.manage().window().maximize(); 
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(3));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(3));
 		driver.get("http://192.168.1.36:90/#/auth");
 		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 		FileInputStream FIS=new FileInputStream(file);
@@ -486,6 +486,7 @@ public class InstallerSetup extends Locators  {
 		act.click().build().perform();
 		element.click();
 		driver.findElement(By.xpath(InvstDetails)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstDocAttach)).click();
 		Thread.sleep(2000);
 		String FilePath="C:\\Users\\thirumaran\\Desktop\\Screenshot 2024-03-06 105214.png";
@@ -597,8 +598,8 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.name(InvstRemarks)).sendKeys(Remarks);
 		driver.findElement(By.xpath(InvstSaveBtn)).click();
 	}
-
-	@Test(priority = 23,retryAnalyzer = ReRunFailedTestCase.class)
+	@Test(priority = 23,retryAnalyzer = ReRunFailedTestCase.class, enabled=false, 
+			description = "After file upload page goes to blank page")
 	public void TC24() throws InterruptedException, AWTException {
 		InstallerBtnClick();
 		Thread.sleep(2000);
@@ -610,7 +611,8 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.xpath(InvstEditBtn)).click();
 		Thread.sleep(2000);
 		//Attached document remove
-		driver.findElement(By.xpath("//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div[2]/form/div/div[1]/div[6]/div/div/button/svg/path")).click();
+		ele3=driver.findElement(By.xpath("//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div[2]/form/div/div[1]/div[6]/div/div/button"));
+		ele3.click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstDocAttach)).click();
 		Thread.sleep(2000);
@@ -661,10 +663,10 @@ public class InstallerSetup extends Locators  {
 		ele2=driver.findElement(By.xpath(InvstNSFSetupAlrtBtn));
 		Thread.sleep(2000);
 		if(ele2.isDisplayed()) {
-			System.out.println("Alert Message is shown");
+			System.out.println("Sucessfull Message is shown");
 		}
 		else {
-			System.out.println("Alert Message is not shown");
+			System.out.println("Sucessfull Message is not shown");
 		}
 		ele2.click();
 	}

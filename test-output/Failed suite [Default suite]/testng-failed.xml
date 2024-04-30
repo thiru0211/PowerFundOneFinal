@@ -3,14 +3,15 @@
 <suite name="Failed suite [Failed suite [Default suite]]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)(failed)">
     <classes>
-      <class name="allPages.CustomerIssues">
+      <class name="allPages.InstallerSetup">
         <methods>
-          <include name="TC04"/>
+          <include name="TC26"/>
+          <include name="TC24"/>
+          <include name="launch"/>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="launch"/>
         </methods>
-      </class> <!-- allPages.CustomerIssues -->
+      </class> <!-- allPages.InstallerSetup -->
     </classes>
   </test> <!-- Default test(failed)(failed) -->
 </suite> <!-- Failed suite [Failed suite [Default suite]] -->

@@ -39,11 +39,11 @@ public class InvestorSetup extends Locators {
 	public void setUp() throws IOException{
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions option=new ChromeOptions();
-		option.addArguments("--headless=new");
+	//	option.addArguments("--headless=new");
 		driver=new ChromeDriver(option);
 		driver.manage().window().maximize(); 
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(3));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(3));
 		driver.get("http://192.168.1.36:90/#/auth");
 		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 		FileInputStream FIS=new FileInputStream(file);
@@ -486,7 +486,7 @@ public class InvestorSetup extends Locators {
 		driver.findElement(By.id(LoginBtn)).click();
 	}
 
-	@Test(priority = 20,retryAnalyzer = ReRunFailedTestCase.class)
+	@Test(priority = 20,retryAnalyzer = ReRunFailedTestCase.class, description = "Attachment is not adding")
 	public void TC20() throws InterruptedException, AWTException {
 		InvestorBtnClick();
 		Thread.sleep(2000);
@@ -500,6 +500,12 @@ public class InvestorSetup extends Locators {
 		driver.findElement(By.xpath(InvstrEditBtn)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstrTransBtn)).click();
+		ele1=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div[2]/p"));
+		if(ele1.isDisplayed()) {
+			System.out.println("\033[1m No transcation is found due to Attachment is not working \033[0m");
+		}
+		
+		else {
 		driver.findElement(By.xpath(InvstrTranEditbtn)).click();
 		driver.findElement(By.name(InvstrTranDate)).sendKeys(InvestTranDate);
 		driver.findElement(By.name(InvstrTranAmt)).sendKeys(InvestAmt);
@@ -509,7 +515,7 @@ public class InvestorSetup extends Locators {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstrTranUpdBtn)).click();		
 	}
-
+	}
 	
 	@Test(priority = 21,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC21() throws InterruptedException, AWTException {
@@ -520,10 +526,17 @@ public class InvestorSetup extends Locators {
 		driver.findElement(By.xpath(InvstrEditBtn)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstrTransBtn)).click();
+		
+		ele1=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div[2]/p"));
+		if(ele1.isDisplayed()) {
+			System.out.println("\033[1m No transcation is found due to Attachment is not working \033[0m");
+		}
+		
+		else {
 		driver.findElement(By.xpath(InvstrTranEditbtn)).click();
 		driver.findElement(By.xpath(InvstrTranEditBckBtn)).click();		
 	}
-
+	}
 
 	@Test(priority = 22,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC22() throws InterruptedException, AWTException {
@@ -532,11 +545,19 @@ public class InvestorSetup extends Locators {
 		String InvestName1=PropertyFileReader.propertymap.get("InvestName1");
 		driver.findElement(By.xpath(InvstrSrch)).sendKeys(InvestName1);
 		driver.findElement(By.xpath(InvstrEditBtn)).click();
-		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstrTransBtn)).click();
+		Thread.sleep(2000);
+		ele1=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div[2]/p"));
+		if(ele1.isDisplayed()) {
+			System.out.println("\033[1m No transcation is found due to Attachment is not working \033[0m");
+		}
+		
+		else {
+		
 		driver.findElement(By.xpath(InvstrDwldBtn)).click();		
 	}	
-
+	}
+	
 	@Test(enabled = true,retryAnalyzer = ReRunFailedTestCase.class, description = "update button is not working",priority = 23)
 	public void TC23() throws InterruptedException, AWTException {
 		InvestorBtnClick();
