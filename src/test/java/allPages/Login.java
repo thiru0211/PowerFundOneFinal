@@ -28,7 +28,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.github.dockerjava.transport.DockerHttpClient.Request.Method;
-import com.mongodb.MapReduceCommand.OutputType;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -220,10 +219,5 @@ public class Login extends Locators{
 			System.out.println("Message is not shown");
 		}
 		ele2.click();
-	}
-
-	@AfterMethod
-	public void teardown() {
-		driver.quit();
 	}
 }

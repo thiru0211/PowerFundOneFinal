@@ -34,7 +34,7 @@ public class CheckPayments extends Locators {
 	public void setUp() throws IOException{
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions option=new ChromeOptions();
-		option.addArguments("--headless=new");
+		//option.addArguments("--headless=new");
 		driver=new ChromeDriver(option);
 		driver.manage().window().maximize(); 
 		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(3));
@@ -46,11 +46,11 @@ public class CheckPayments extends Locators {
 		prop.load(FIS);	
 	}
 
-			@AfterMethod
-			public void tearDown() throws IOException, InterruptedException{
-				Thread.sleep(3000);
-				driver.quit();
-			}
+	@AfterMethod
+	public void tearDown() throws IOException, InterruptedException{
+		Thread.sleep(3000);
+		driver.quit();
+	}
 
 	@Test(priority = 1,retryAnalyzer = ReRunFailedTestCase.class)
 	public void CheckPaymentsClick() throws InterruptedException {
@@ -64,7 +64,7 @@ public class CheckPayments extends Locators {
 		driver.findElement(By.xpath(CustomerBtn)).click();
 		driver.findElement(By.xpath(CheckPayBtn)).click();
 	}
-	
+
 	@Test(priority = 2,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC01() throws InterruptedException {
 		CheckPaymentsClick();
@@ -87,7 +87,7 @@ public class CheckPayments extends Locators {
 		sel.selectByVisibleText(CPAddInstlrDD);
 		driver.findElement(By.xpath(CPAddCustName)).sendKeys(CPAddCusName);
 	}
-	
+
 	@Test(priority = 4,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC03() throws InterruptedException {
 		TC02();
@@ -98,7 +98,7 @@ public class CheckPayments extends Locators {
 		driver.findElement(By.xpath(CPCusEditRobBtn)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(CPCusEditSavBtn)).click();
-		ele1=driver.findElement(By.xpath("//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div/div/div[7]/button"));
+		ele1=driver.findElement(By.xpath("//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div/div[9]/button"));
 		Thread.sleep(2000);
 		if(ele1.isDisplayed()) {
 			System.out.println("Mandatory message is shown");
@@ -108,14 +108,14 @@ public class CheckPayments extends Locators {
 		}
 		ele1.click();
 	}
-	
+
 	@Test(priority = 5,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC04() throws InterruptedException {
 		TC02();
 		driver.findElement(By.xpath(CPAddSrchBtn)).click();
 		driver.findElement(By.xpath(CPCusEditBckBtn)).click();
 	}
-	
+
 	@Test(priority = 6,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC05() throws InterruptedException, AWTException {
 		TC03();
@@ -125,7 +125,7 @@ public class CheckPayments extends Locators {
 		String CPCusEditNamAcc=PropertyFileReader.propertymap.get("CPCusEditNamAcc");
 		String CPCusEditBnkAcc=PropertyFileReader.propertymap.get("CPCusEditBnkAcc");
 		String CPCusEditBnkAccRout=PropertyFileReader.propertymap.get("CPCusEditBnkAccRout");
-		
+
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollTo(0, 0);");
 		driver.findElement(By.xpath(CPCusEditDocBtn)).click();
@@ -141,7 +141,7 @@ public class CheckPayments extends Locators {
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		Thread.sleep(2000);
-		
+
 		ele1=driver.findElement(By.name(CPCusEdiChkNam));
 		ele1.click();
 		ele1.sendKeys(CPCusEditChkNam);
@@ -151,5 +151,5 @@ public class CheckPayments extends Locators {
 		driver.findElement(By.name(CPCusEdiBnkAcc)).sendKeys(CPCusEditBnkAcc);
 		driver.findElement(By.name(CPCusEdiBnkAccRout)).sendKeys(CPCusEditBnkAccRout);
 		driver.findElement(By.xpath(CPCusEditSavBtn)).click();
-}
+	}
 }

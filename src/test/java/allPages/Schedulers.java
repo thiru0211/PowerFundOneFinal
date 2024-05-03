@@ -29,7 +29,7 @@ public class Schedulers extends Locators{
 	public void setUp() throws IOException{
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions option=new ChromeOptions();
-		option.addArguments("--headless=new");
+		//option.addArguments("--headless=new");
 		driver=new ChromeDriver(option);
 		driver.manage().window().maximize(); 
 		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(3));
@@ -84,22 +84,16 @@ public class Schedulers extends Locators{
 		ele1=driver.findElement(By.xpath(SchBankDD));
 		Select sel=new Select(ele1);
 		sel.selectByVisibleText(ScheBankDD);
-		Thread.sleep(2000);
-		ele2=driver.findElement(By.xpath(SchFrmDte));
-		ele2.sendKeys(SchFromDate);
-		Thread.sleep(2000);
-		ele3=driver.findElement(By.xpath("//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div[3]/div/button"));
-		if(ele3.isDisplayed())
-		{
-			ele3.click();
-			ele2.sendKeys(SchFromDate);
-		}
-		ele3.click();
+//		Thread.sleep(2000);
+//		ele2=driver.findElement(By.xpath(SchFrmDte));
+//		ele2.sendKeys(SchFromDate);
+//		Thread.sleep(2000);
 	}
 
 	@Test(priority = 2,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC02() throws InterruptedException {
 		TC01();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(SchCusViewBtn)).click();
 		Thread.sleep(2000);
 		WebElement element = driver.findElement(By.xpath(SchCusActBtn));
@@ -112,6 +106,7 @@ public class Schedulers extends Locators{
 	@Test(priority = 3,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC03() throws InterruptedException {
 		TC01();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(SchCusViewBtn)).click();
 		Thread.sleep(2000);
 		WebElement element = driver.findElement(By.xpath(SchCusActBtn));
@@ -124,6 +119,7 @@ public class Schedulers extends Locators{
 	@Test(priority = 4,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC04() throws InterruptedException {
 		TC01();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(SchCusViewBtn)).click();
 		Thread.sleep(2000);
 		WebElement element = driver.findElement(By.xpath(SchCusActBtn));

@@ -764,7 +764,7 @@ public class Locators extends BaseClass{
 	public String CPCusEditRobBtn="//*[@id=\"kt_content_container\"]/div/div[2]/form/div/div[3]/div[3]/div/div/div[1]/div/div/div/input";
 	public String CPCusEditSavBtn="//*[@id=\"kt_content_container\"]/div/div[2]/form/div/div[3]/div[3]/div/div/div[2]/button";
 	public String CPCusEditBckBtn="//button[@class='btn btn-light me-3 btn-md']";
-	public String CPCusEditDocBtn="//h6[text()='Drop or click to upload attachment.']";
+	public String CPCusEditDocBtn="//*[@id=\"kt_content_container\"]/div/div[2]/form/div/div[2]/label/div/p";
 	public String CPCusEdiChkNam="check";//name
 	public String CPCusEdiChkDate="checkdate";//name
 	public String CPCusEdiChkAmt="amount";//name

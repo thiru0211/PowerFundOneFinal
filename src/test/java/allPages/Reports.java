@@ -6,20 +6,10 @@ import org.testng.annotations.BeforeMethod;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 public class Reports extends PropertyFileReader{
 	private ExtentReports extentReports;
     private ExtentTest extentTest;
-
-    @BeforeMethod
-    public void setup() {
-        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("test-output/ExtentReport.html");
-        extentReports = new ExtentReports();
-        extentReports.attachReporter(htmlReporter);
-    }
-
-    @AfterMethod
     public void tearDown(ITestResult result) {
         if (extentTest != null) {
             if (result.getStatus() == ITestResult.FAILURE) {

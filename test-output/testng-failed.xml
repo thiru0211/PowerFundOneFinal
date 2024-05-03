@@ -3,14 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="allPages.InvoicePayAndCreate">
+      <class name="allPages.Tickets">
         <methods>
           <include name="setUp"/>
-          <include name="TC27"/>
           <include name="launch"/>
           <include name="tearDown"/>
+          <include name="TC03"/>
         </methods>
-      </class> <!-- allPages.InvoicePayAndCreate -->
+      </class> <!-- allPages.Tickets -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

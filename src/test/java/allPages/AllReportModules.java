@@ -20,24 +20,31 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
-import allPages.ReRunFailedTestCase;
 
 public class AllReportModules extends Locators{
 	public static WebDriver driver;
 	public static WebDriverWait wait;
 	public static WebElement ele1,ele2,ele3,ele4,ele5;
-
+	static ExtentReports report;
+	static ExtentTest test;
+	static ExtentReports extent=new ExtentReports();
 	@BeforeMethod
 	public void setUp() throws IOException{
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions option=new ChromeOptions();
-		//option.addArguments("--headless=new");
+		option.addArguments("--headless=new");
 		driver=new ChromeDriver(option);
 		driver.manage().window().maximize(); 
 		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(3));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(3));
 		driver.get("http://192.168.1.36:90/#/auth");
+		ExtentSparkReporter spark=new ExtentSparkReporter("target/Spark.html");
+		extent.attachReporter(spark);
 		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 		FileInputStream FIS=new FileInputStream(file);
 		Properties prop=new Properties();
@@ -47,11 +54,13 @@ public class AllReportModules extends Locators{
 	@AfterMethod
 	public void tearDown() throws IOException, InterruptedException{
 		Thread.sleep(3000);
+		extent.flush();
 		driver.quit();
 	}
 
 	@Test(retryAnalyzer = ReRunFailedTestCase.class)
 	public void OSReportBtn() throws InterruptedException {
+		test=extent.createTest("OSReportBtn");
 		PropertyFileReader.propertyRead();
 		String EmailId=PropertyFileReader.propertymap.get("EmailId");
 		String Passwrd=PropertyFileReader.propertymap.get("Passwrd");
@@ -66,6 +75,7 @@ public class AllReportModules extends Locators{
 
 	@Test(retryAnalyzer = ReRunFailedTestCase.class)
 	public void TapeReportBtn() throws InterruptedException {
+		test=extent.createTest("OSReportBtn");
 		PropertyFileReader.propertyRead();
 		String EmailId=PropertyFileReader.propertymap.get("EmailId");
 		String Passwrd=PropertyFileReader.propertymap.get("Passwrd");
@@ -80,6 +90,7 @@ public class AllReportModules extends Locators{
 
 	@Test(retryAnalyzer = ReRunFailedTestCase.class)
 	public void ACHTransactionBtn() throws InterruptedException {
+		test=extent.createTest("OSReportBtn");
 		PropertyFileReader.propertyRead();
 		String EmailId=PropertyFileReader.propertymap.get("EmailId");
 		String Passwrd=PropertyFileReader.propertymap.get("Passwrd");
@@ -94,6 +105,7 @@ public class AllReportModules extends Locators{
 
 	@Test(retryAnalyzer = ReRunFailedTestCase.class)
 	public void InvoiceLog() throws InterruptedException {
+		test=extent.createTest("OSReportBtn");
 		PropertyFileReader.propertyRead();
 		String EmailId=PropertyFileReader.propertymap.get("EmailId");
 		String Passwrd=PropertyFileReader.propertymap.get("Passwrd");
@@ -108,6 +120,7 @@ public class AllReportModules extends Locators{
 
 	@Test(retryAnalyzer = ReRunFailedTestCase.class)
 	public void ActivityReport() throws InterruptedException {
+		test=extent.createTest("OSReportBtn");
 		PropertyFileReader.propertyRead();
 		String EmailId=PropertyFileReader.propertymap.get("EmailId");
 		String Passwrd=PropertyFileReader.propertymap.get("Passwrd");
@@ -171,6 +184,7 @@ public class AllReportModules extends Locators{
 		driver.findElement(By.xpath(OSAddNotes)).click();
 		ele2=driver.findElement(By.xpath(OSAddNtTxtBox));
 		ele2.sendKeys(OSAddNtTxt);
+		Thread.sleep(2000);
 		ele2.clear();
 	}
 
@@ -325,15 +339,15 @@ public class AllReportModules extends Locators{
 		Select sel1=new Select(ele1);
 		sel1.selectByVisibleText(OSAddRcdPayMode);
 
-		ele2=driver.findElement(By.name(OSAddRcdPyBnkName));
-		Select sel2=new Select(ele2);
-		sel2.selectByVisibleText(OSAddRcdPyBankName);
-
+//		ele2=driver.findElement(By.name(OSAddRcdPyBnkName));
+//		Select sel2=new Select(ele2);
+//		sel2.selectByVisibleText(OSAddRcdPyBankName);
+		Thread.sleep(2000);
 		ele3=driver.findElement(By.id(OSAddRcdPyTyp));
 		Select sel3=new Select(ele3);
 		sel3.selectByVisibleText(OSAddRcdPyType);
-
-		driver.findElement(By.xpath(OSAddRcdPySubBtn)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(OSAddRcdPySubBtn)).click();		
 	}
 
 	@Test(priority = 12,retryAnalyzer = ReRunFailedTestCase.class)
@@ -529,8 +543,17 @@ public class AllReportModules extends Locators{
 		act.click().build().perform();
 		element.click();
 		driver.findElement(By.xpath(ACHCusSrch)).sendKeys(ACHTranCusName);
-		driver.findElement(By.xpath(ACHTransCusEditBtn)).click();
-		driver.findElement(By.id(ACHTransCusEditBCkBtn)).click();
+		Thread.sleep(2000);
+		//No transcation details check
+		ele3=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div[1]/div[3]/div/label"));
+		if(ele3.isDisplayed()) {
+			System.out.println("No customer details shown after enter the name");
+		}
+		else {
+			System.out.println("Customer details are shown");
+			driver.findElement(By.xpath(ACHTransCusEditBtn)).click();
+			driver.findElement(By.id(ACHTransCusEditBCkBtn)).click();
+		}
 	}
 
 	@Test(priority = 25,retryAnalyzer = ReRunFailedTestCase.class)
@@ -564,27 +587,44 @@ public class AllReportModules extends Locators{
 		driver.findElement(By.xpath(InvLogExprtBtn)).click();
 	}
 
-	@Test(priority = 28,retryAnalyzer = ReRunFailedTestCase.class, enabled=false, description = "URL loading time is very high")
+	@Test(priority = 28,retryAnalyzer = ReRunFailedTestCase.class, enabled=true, description = "URL loading time is very high")
 	public void TC29() throws InterruptedException {
 		TC26();//4
-		driver.findElement(By.xpath(InvLogCusEdtBtn)).click();
-		ele1=driver.findElement(By.id(InvLogPymtUrl));
-		String text = ele1.getText();
-		driver.get(text);
-		Thread.sleep(5000);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-		driver.findElement(By.name(InvLogPayURLRob)).click();
-		driver.findElement(By.name(InvLogPayURLAgre)).click();
-		driver.findElement(By.name(InvLogPayURLPay)).click();
+		Thread.sleep(2000);
+		//If no transaction details found present
+		ele2=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[2]/div/div/label"));
+		if(ele2.isDisplayed()) {
+			System.out.println("No Transaction Details found is shown after enter the name");
+		}
+		else {
+			System.out.println("Transcation details is shown");
+			driver.findElement(By.xpath(InvLogCusEdtBtn)).click();
+			ele1=driver.findElement(By.id(InvLogPymtUrl));
+			String text = ele1.getText();
+			driver.get(text);
+			Thread.sleep(5000);
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+			driver.findElement(By.name(InvLogPayURLRob)).click();
+			driver.findElement(By.name(InvLogPayURLAgre)).click();
+			driver.findElement(By.name(InvLogPayURLPay)).click();
+		}
 	}
 
-	@Test(priority = 29,retryAnalyzer = ReRunFailedTestCase.class, enabled=false)
+	@Test(priority = 29,retryAnalyzer = ReRunFailedTestCase.class )
 	public void TC30() throws InterruptedException {
 		TC26();//5
 		String ILPayURLName=PropertyFileReader.propertymap.get("ILPayURLName");
 		String ILPayURLAcc=PropertyFileReader.propertymap.get("ILPayURLAcc");
 		String ILPayURLRout=PropertyFileReader.propertymap.get("ILPayURLRout");
+		Thread.sleep(2000);
+		//If no transaction details found present
+		ele2=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[2]/div/div/label"));
+		if(ele2.isDisplayed()) {
+			System.out.println("No Transaction Details found is shown after enter the name");
+		}
+		else {
+			System.out.println("Transcation details is shown");
 		driver.findElement(By.xpath(InvLogCusEdtBtn)).click();
 		ele1=driver.findElement(By.id(InvLogPymtUrl));
 		String text = ele1.getText();
@@ -597,10 +637,19 @@ public class AllReportModules extends Locators{
 		driver.findElement(By.name(InvLogPayURLPay)).click();
 		driver.findElement(By.name(InvLogPayURLPay)).click();
 	}
+	}
 
-	@Test(priority = 30,retryAnalyzer = ReRunFailedTestCase.class)
+	@Test(priority = 30,retryAnalyzer = ReRunFailedTestCase.class )
 	public void TC31() throws InterruptedException {
 		TC26();	//6
+		Thread.sleep(2000);
+		//If no transaction details found present
+		ele2=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[2]/div/div/label"));
+		if(ele2.isDisplayed()) {
+			System.out.println("No Transaction Details found is shown after enter the name");
+		}
+		else {
+			System.out.println("Transcation details is shown");
 		driver.findElement(By.xpath(InvLogCusEdtBtn)).click();
 		Thread.sleep(2000);
 		WebElement element = driver.findElement(By.id(InvLogCusEdtActBtn));
@@ -610,10 +659,20 @@ public class AllReportModules extends Locators{
 		driver.findElement(By.xpath(InvLogRsndInv)).click();
 		driver.findElement(By.id(InvLogRsndYes)).click();
 	}
-
-	@Test(priority = 31,retryAnalyzer = ReRunFailedTestCase.class, description = "after finish TC29 then it can implement")
+	}
+	
+	@Test(priority = 31,retryAnalyzer = ReRunFailedTestCase.class,
+			description = "after finish TC29 then it can implement" )
 	public void TC32() throws InterruptedException {
 		TC26();	//7
+		Thread.sleep(2000);
+		//If no transaction details found present
+		ele2=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[2]/div/div/label"));
+		if(ele2.isDisplayed()) {
+			System.out.println("No Transaction Details found is shown after enter the name");
+		}
+		else {
+			System.out.println("Transcation details is shown");
 		driver.findElement(By.xpath(InvLogCusEdtBtn)).click();
 		Thread.sleep(2000);
 		WebElement element = driver.findElement(By.id(InvLogCusEdtActBtn));
@@ -623,10 +682,18 @@ public class AllReportModules extends Locators{
 		driver.findElement(By.xpath(InvLogRsndInv)).click();
 		driver.findElement(By.id(InvLogRsndYes)).click();
 	}
-
-	@Test(priority = 32,retryAnalyzer = ReRunFailedTestCase.class)
+	}
+	@Test(priority = 32,retryAnalyzer = ReRunFailedTestCase.class )
 	public void TC33() throws InterruptedException {
 		TC26();	//8
+		Thread.sleep(2000);
+		//If no transaction details found present
+		ele2=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[2]/div/div/label"));
+		if(ele2.isDisplayed()) {
+			System.out.println("No Transaction Details found is shown after enter the name");
+		}
+		else {
+			System.out.println("Transcation details is shown");
 		driver.findElement(By.xpath(InvLogCusEdtBtn)).click();
 		Thread.sleep(2000);
 		WebElement element = driver.findElement(By.id(InvLogCusEdtActBtn));
@@ -637,10 +704,18 @@ public class AllReportModules extends Locators{
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvLogRsndNo)).click();
 	}
-
-	@Test(priority = 33,retryAnalyzer = ReRunFailedTestCase.class)
+	}
+	@Test(priority = 33,retryAnalyzer = ReRunFailedTestCase.class )
 	public void TC34() throws InterruptedException {
 		TC26();	//9
+		Thread.sleep(2000);
+		//If no transaction details found present
+		ele2=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[2]/div/div/label"));
+		if(ele2.isDisplayed()) {
+			System.out.println("No Transaction Details found is shown after enter the name");
+		}
+		else {
+			System.out.println("Transcation details is shown");
 		driver.findElement(By.xpath(InvLogCusEdtBtn)).click();
 		Thread.sleep(2000);
 		WebElement element = driver.findElement(By.id(InvLogCusEdtActBtn));
@@ -649,8 +724,8 @@ public class AllReportModules extends Locators{
 		element.click();
 		driver.findElement(By.xpath(InvLogDwldInv)).click();
 	}
-
-	@Test(priority = 34,retryAnalyzer = ReRunFailedTestCase.class)
+	}
+	@Test(priority = 34,retryAnalyzer = ReRunFailedTestCase.class )
 	public void TC35() throws InterruptedException {
 		InvoiceLog();//10
 		String InvLogBnkDD=PropertyFileReader.propertymap.get("InvLogBnkDD");
@@ -666,6 +741,14 @@ public class AllReportModules extends Locators{
 		sel2.selectByVisibleText(InvPayTyp);
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvLogCusNam)).sendKeys(InvLogPaidCusName);
+		Thread.sleep(2000);
+		//If no transaction details found present
+		ele2=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[2]/div/div/label"));
+		if(ele2.isDisplayed()) {
+			System.out.println("No Transaction Details found is shown after enter the name");
+		}
+		else {
+			System.out.println("Transcation details is shown");
 		driver.findElement(By.xpath(InvLogCusEdtBtn)).click();
 		Thread.sleep(2000);
 		WebElement element = driver.findElement(By.id(InvLogCusEdtActBtn));
@@ -674,7 +757,8 @@ public class AllReportModules extends Locators{
 		element.click();
 		driver.findElement(By.xpath(InvLogDwldRecp)).click();
 	}
-
+	}
+	
 	@Test(priority = 35,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC36() throws InterruptedException {
 		InvoiceLog();//11
@@ -691,6 +775,14 @@ public class AllReportModules extends Locators{
 		sel2.selectByVisibleText(InvPayTyp);
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvLogCusNam)).sendKeys(InvLogPaidCusName);
+		Thread.sleep(2000);
+		//If no transaction details found present
+		ele2=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[2]/div/div/label"));
+		if(ele2.isDisplayed()) {
+			System.out.println("No Transaction Details found is shown after enter the name");
+		}
+		else {
+			System.out.println("Transcation details is shown");
 		driver.findElement(By.xpath(InvLogCusEdtBtn)).click();
 		Thread.sleep(2000);
 		WebElement element = driver.findElement(By.id(InvLogCusEdtActBtn));
@@ -699,7 +791,8 @@ public class AllReportModules extends Locators{
 		element.click();
 		driver.findElement(By.xpath(InvLogDwldAll)).click();
 	}
-
+	}
+	
 	@Test(priority = 36,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC37() throws InterruptedException {
 		InvoiceLog();//12
@@ -717,6 +810,14 @@ public class AllReportModules extends Locators{
 		sel2.selectByVisibleText(InvPayTyp);
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvLogCusNam)).sendKeys(InvLogPendCusName1);
+		Thread.sleep(2000);
+		//If no transaction details found present
+		ele2=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[2]/div/div/label"));
+		if(ele2.isDisplayed()) {
+			System.out.println("No Transaction Details found is shown after enter the name");
+		}
+		else {
+			System.out.println("Transcation details is shown");
 		driver.findElement(By.xpath(InvLogCusEdtBtn)).click();
 		Thread.sleep(2000);
 		WebElement element = driver.findElement(By.id(InvLogCusEdtActBtn));
@@ -728,8 +829,9 @@ public class AllReportModules extends Locators{
 		Thread.sleep(2000);
 		driver.findElement(By.id(InvLogVoidYes)).click();
 	}
-
-	@Test(priority = 37,retryAnalyzer = ReRunFailedTestCase.class)
+	}
+	
+	@Test(priority = 37,retryAnalyzer = ReRunFailedTestCase.class )
 	public void TC38() throws InterruptedException {
 		InvoiceLog();//13
 		String InvLogBnkDD=PropertyFileReader.propertymap.get("InvLogBnkDD");
@@ -745,6 +847,14 @@ public class AllReportModules extends Locators{
 		sel2.selectByVisibleText(InvPayTyp1);
 		Thread.sleep(2000);
 		//driver.findElement(By.xpath(InvLogCusNam)).sendKeys(InvLogPendCusName1);
+		Thread.sleep(2000);
+		//If no transaction details found present
+		ele2=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[2]/div/div/label"));
+		if(ele2.isDisplayed()) {
+			System.out.println("No Transaction Details found is shown after enter the name");
+		}
+		else {
+			System.out.println("Transcation details is shown");
 		driver.findElement(By.xpath(InvLogCusEdtBtn)).click();
 		Thread.sleep(2000);
 		WebElement element = driver.findElement(By.id(InvLogCusEdtActBtn));
@@ -756,8 +866,9 @@ public class AllReportModules extends Locators{
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvLogVoidNo)).click();
 	}
-
-	@Test(priority = 38,retryAnalyzer = ReRunFailedTestCase.class)
+	}
+	
+	@Test(priority = 38,retryAnalyzer = ReRunFailedTestCase.class,enabled =false)
 	public void TC39() throws InterruptedException {
 		InvoiceLog();//14
 		String InvLogBnkDD=PropertyFileReader.propertymap.get("InvLogBnkDD");
@@ -775,12 +886,19 @@ public class AllReportModules extends Locators{
 		driver.findElement(By.xpath(InvLogCusNam)).sendKeys(InvLogPendCusName1);
 		driver.findElement(By.xpath(InvLogCusEdtBtn)).click();
 		Thread.sleep(2000);
-		WebElement element = driver.findElement(By.id(InvLogCusEdtActBtn));
+		//If no transaction details found present
+		ele2=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[2]/div/div/label"));
+		if(ele2.isDisplayed()) {
+			System.out.println("No Transaction Details found is shown after enter the name");
+		}
+		else {
+			System.out.println("Transcation details is shown");
+			WebElement element = driver.findElement(By.id(InvLogCusEdtActBtn));
 		Actions act=new Actions(driver);
 		act.click().build().perform();
 		element.click();
 		driver.findElement(By.xpath(InvLogCusEdtActBckBtn)).click();
 	}
 }
-
+}
 

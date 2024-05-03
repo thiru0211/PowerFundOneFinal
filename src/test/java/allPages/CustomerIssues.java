@@ -43,11 +43,11 @@ public class CustomerIssues extends Locators {
 	public void setUp() throws IOException{
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions option=new ChromeOptions();
-	//	option.addArguments("--headless=new");
+		option.addArguments("--headless=new");
 		driver=new ChromeDriver(option);
 		driver.manage().window().maximize(); 
-	//	driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(3));
-	//	driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(3));
+		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(3));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(3));
 		driver.get("http://192.168.1.36:90/#/auth");
 		//driver.get("http://54.193.42.127:81/auth");
 		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
