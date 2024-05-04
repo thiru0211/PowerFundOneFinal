@@ -37,8 +37,8 @@ public class CustomerACHUpload extends Locators {
 		option.addArguments("--headless=new");
 		driver=new ChromeDriver(option);
 		driver.manage().window().maximize(); 
-		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(3));
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(3));
+		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(1));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
 		driver.get("http://192.168.1.36:90/#/auth");
 		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 		FileInputStream FIS=new FileInputStream(file);

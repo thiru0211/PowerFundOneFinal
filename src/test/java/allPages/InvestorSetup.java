@@ -39,11 +39,11 @@ public class InvestorSetup extends Locators {
 	public void setUp() throws IOException{
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions option=new ChromeOptions();
-	//	option.addArguments("--headless=new");
+		option.addArguments("--headless=new");
 		driver=new ChromeDriver(option);
 		driver.manage().window().maximize(); 
-		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(3));
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(3));
+		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(1));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
 		driver.get("http://192.168.1.36:90/#/auth");
 		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 		FileInputStream FIS=new FileInputStream(file);
@@ -395,6 +395,7 @@ public class InvestorSetup extends Locators {
 		Actions act=new Actions(driver);
 		act.click().build().perform();
 		element.click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstrTranExcelBtn)).click();
 	}
 
@@ -442,8 +443,7 @@ public class InvestorSetup extends Locators {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstrCusSavBtn)).click();
 	}
-
-
+	
 	@Test(priority = 17,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC16() throws InterruptedException, AWTException {
 		InvestorBtnClick();
@@ -787,7 +787,6 @@ public class InvestorSetup extends Locators {
 		driver.findElement(By.xpath(InvstrAddShwYes)).click();		
 		driver.findElement(By.xpath(InvstrNewFeedSaveBtn)).click();	
 	}
-	
 	
 	@Test(priority = 34,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC34() throws InterruptedException, AWTException {

@@ -29,11 +29,11 @@ public class Tickets extends Locators{
 	public void setUp() throws IOException{
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions option=new ChromeOptions();
-	//	option.addArguments("--headless=new");
+		option.addArguments("--headless=new");
 		driver=new ChromeDriver(option);
 		driver.manage().window().maximize(); 
-		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(3));
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(3));
+		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(1));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
 		driver.get("http://192.168.1.36:90/#/auth");
 		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 		FileInputStream FIS=new FileInputStream(file);
@@ -171,7 +171,9 @@ public class Tickets extends Locators{
 		Actions act=new Actions(driver);
 		act.click().build().perform();
 		element.click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(TktViewBtnSndMail)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(TktViewBtnSndMailCls)).click();
 	}
 
