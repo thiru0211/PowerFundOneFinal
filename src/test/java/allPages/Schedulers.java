@@ -151,6 +151,7 @@ public class Schedulers extends Locators{
 		driver.findElement(By.xpath(SCHAchSchBtn)).click();
 	}
 
+	
 	@Test(priority = 7,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC07() throws InterruptedException {
 		NoPaymentBtn();

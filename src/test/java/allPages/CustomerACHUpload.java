@@ -84,6 +84,13 @@ public class CustomerACHUpload extends Locators {
 	@Test(priority = 2,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC02() throws InterruptedException, AWTException {
 		ACHUploadClick();
+		Thread.sleep(2000);
+		ele1=driver.findElement(By.xpath("//*[@id=\"installer\"]"));
+		Select sel=new Select(ele1);
+		sel.selectByIndex(3);
+		Thread.sleep(2000);
+		driver.findElement(By.xpath(CusListExclUpldFilUpld)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(ACHUploadFileBtn)).click();
 		Thread.sleep(2000);
 		String FilePath="C:\\Users\\thirumaran\\Desktop\\Screenshot 2024-03-06 105214.png";
@@ -164,8 +171,14 @@ public class CustomerACHUpload extends Locators {
 	@Test(priority = 8,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC08() throws InterruptedException, AWTException {
 		TC07();
+		Thread.sleep(2000);
+		ele1=driver.findElement(By.xpath("//*[@id=\"installer\"]"));
+		Select sel=new Select(ele1);
+		sel.selectByIndex(3);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(CusListExclUpldFilUpld)).click();
 		Thread.sleep(2000);
+		
 		String FilePath="C:\\Users\\thirumaran\\Desktop\\Screenshot 2024-03-06 105214.png";
 		Robot robot = new Robot();
 		StringSelection selection = new StringSelection(FilePath);

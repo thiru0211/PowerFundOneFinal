@@ -12,11 +12,11 @@
           <class name="allPages.CustomerList"/>
           <class name="allPages.CustomerACHUpload"/>
       	  <class name="allPages.AllReportModules"/>
-      	  <class name="allPages.InvoicePayAndCreate"/>
       	  <class name="allPages.Reports"/>
-     	  <class name="allPages.Schedulers"/>
       	  <class name="allPages.CheckPayments"/>
       	  <class name="allPages.Tickets"/>
+      	   <class name="allPages.Schedulers"/>
+      	  <class name="allPages.InvoicePayAndCreate"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

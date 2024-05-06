@@ -112,7 +112,9 @@ public class CheckPayments extends Locators {
 	@Test(priority = 5,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC04() throws InterruptedException {
 		TC02();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(CPAddSrchBtn)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(CPCusEditBckBtn)).click();
 	}
 

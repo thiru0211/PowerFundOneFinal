@@ -415,7 +415,7 @@ public class InvestorSetup extends Locators {
 	}
 
 
-	@Test(priority = 16)
+	@Test(priority = 16,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC15() throws InterruptedException, AWTException {
 		InvestorBtnClick();
 		Thread.sleep(2000);

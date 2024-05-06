@@ -14,6 +14,7 @@ import java.util.Scanner;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -162,7 +163,7 @@ public class CustomerList extends Locators {
 
 		ele2=driver.findElement(By.name(CusPort));
 		Select sel2=new Select(ele2);
-		sel2.selectByVisibleText(CustPort);
+		sel2.selectByIndex(2);
 
 		driver.findElement(By.name(CusPTODate)).sendKeys(CustPTODate);
 		driver.findElement(By.name(CusCrdScre)).sendKeys(CustCrdScre);
@@ -372,9 +373,10 @@ public class CustomerList extends Locators {
 		Thread.sleep(3000);
 		ele2=driver.findElement(By.name(CusPort));
 		Select sel1=new Select(ele2);
-		sel1.selectByVisibleText(CustPort);
+		sel1.selectByIndex(2);
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(CusAddPortEditBtn)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(CusAddPortClsBtn)).click();		
 	}
 
@@ -431,7 +433,7 @@ public class CustomerList extends Locators {
 
 		ele2=driver.findElement(By.name(CusPort));
 		Select sel2=new Select(ele2);
-		sel2.selectByVisibleText(CustPort);
+		sel2.selectByIndex(2);
 
 		driver.findElement(By.name(CusPTODate)).sendKeys(CustPTODate);
 		driver.findElement(By.name(CusCrdScre)).sendKeys(CustCrdScre);
@@ -532,7 +534,7 @@ public class CustomerList extends Locators {
 
 		ele2=driver.findElement(By.name(CusPort));
 		Select sel2=new Select(ele2);
-		sel2.selectByVisibleText(CustPort);
+		sel2.selectByIndex(2);
 
 		driver.findElement(By.name(CusPTODate)).sendKeys(CustPTODate);
 		driver.findElement(By.name(CusCrdScre)).sendKeys(CustCrdScre);
@@ -1091,11 +1093,18 @@ public class CustomerList extends Locators {
 		CusEditActBtn();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(CusEditCRMMonitBtn)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(CusEditCRMUpdBtn)).click();
 		Thread.sleep(2000);
 		//name in CRM error toast check
 		ele1=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[2]/div[2]/form/div/div[3]/div[2]/div[2]/div"));
 		//production escalation error toast check
+		ele3=driver.findElement(By.name("productionescalation"));
+		String text = ele3.getAttribute("value");
+		int length = text.length();
+		for(int i=0;i<length;i++) {
+			ele3.sendKeys(Keys.BACK_SPACE);
+		}
 		ele2=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[2]/div[2]/form/div/div[3]/div[3]/div[2]/div"));
 		if(ele1.isDisplayed())
 		{

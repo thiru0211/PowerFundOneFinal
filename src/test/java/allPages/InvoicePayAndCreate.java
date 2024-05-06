@@ -37,7 +37,7 @@ public class InvoicePayAndCreate extends Locators {
 	public void setUp() throws IOException{
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions option=new ChromeOptions();
-		//option.addArguments("--headless=new");
+//		option.addArguments("--headless=new");
 		driver=new ChromeDriver(option);
 		driver.manage().window().maximize(); 
 		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(1));
@@ -103,7 +103,9 @@ public class InvoicePayAndCreate extends Locators {
 	@Test(priority = 2,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC02() throws InterruptedException {
 		TC01();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPCusEditBtn)).click();
+		
 		driver.findElement(By.xpath(IPChngInvDate)).click();
 		driver.findElement(By.xpath(IPChngInvPayDatBtn)).click();
 		ele1=driver.findElement(By.xpath("//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div/div/button"));
@@ -292,6 +294,9 @@ public class InvoicePayAndCreate extends Locators {
 		element.click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyEditCus)).click();
+		Thread.sleep(2000);
+		//Enter PTO Date
+		driver.findElement(By.name("ptodate")).sendKeys("15-03-2024");
 		Thread.sleep(2000);
 		WebElement element1 = driver.findElement(By.xpath(IPChMntPyEditActBtn));
 		Actions act1=new Actions(driver);

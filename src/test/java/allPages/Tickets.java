@@ -91,6 +91,7 @@ public class Tickets extends Locators{
 		act.click().build().perform();
 		element.click();
 		driver.findElement(By.xpath(TktViewBtnAddCmt)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(TktViewBtnAddCmtSave)).click();
 		ele1=driver.findElement(By.xpath(TktViewBtnAddCmtMan));
 		Thread.sleep(2000);
@@ -107,6 +108,7 @@ public class Tickets extends Locators{
 	@Test(priority =4,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC04() throws InterruptedException {
 		TC03();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(TktViewBtnAddCmtCls)).click();
 	}
 
@@ -187,6 +189,7 @@ public class Tickets extends Locators{
 		act.click().build().perform();
 		element.click();
 		driver.findElement(By.xpath(TktViewBtnClsTkt)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(TktViewBtnClsTktSav)).click();
 		ele1=driver.findElement(By.xpath(TktViewBtnClsTktMan));
 		Thread.sleep(2000);
