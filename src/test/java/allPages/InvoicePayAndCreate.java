@@ -60,7 +60,6 @@ public class InvoicePayAndCreate extends Locators {
 		PropertyFileReader.propertyRead();
 		String EmailId=PropertyFileReader.propertymap.get("EmailId");
 		String Passwrd=PropertyFileReader.propertymap.get("Passwrd");
-
 		driver.findElement(By.name(Email)).sendKeys(EmailId);
 		driver.findElement(By.name(Password)).sendKeys(Passwrd);
 		driver.findElement(By.id(LoginBtn)).click();
@@ -75,7 +74,6 @@ public class InvoicePayAndCreate extends Locators {
 		PropertyFileReader.propertyRead();
 		String EmailId=PropertyFileReader.propertymap.get("EmailId");
 		String Passwrd=PropertyFileReader.propertymap.get("Passwrd");
-
 		driver.findElement(By.name(Email)).sendKeys(EmailId);
 		driver.findElement(By.name(Password)).sendKeys(Passwrd);
 		driver.findElement(By.id(LoginBtn)).click();
@@ -97,7 +95,7 @@ public class InvoicePayAndCreate extends Locators {
 		ele2=driver.findElement(By.xpath(IPPySts));
 		Select sel2=new Select(ele2);
 		sel2.selectByVisibleText(IPPaySts);
-		driver.findElement(By.xpath(IPSrchBtn)).sendKeys(IPSrchBox);
+		//driver.findElement(By.xpath(IPSrchBtn)).sendKeys(IPSrchBox);
 	}
 
 	@Test(priority = 2,retryAnalyzer = ReRunFailedTestCase.class)
@@ -105,7 +103,6 @@ public class InvoicePayAndCreate extends Locators {
 		TC01();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPCusEditBtn)).click();
-		
 		driver.findElement(By.xpath(IPChngInvDate)).click();
 		driver.findElement(By.xpath(IPChngInvPayDatBtn)).click();
 		ele1=driver.findElement(By.xpath("//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div/div/button"));
@@ -146,7 +143,6 @@ public class InvoicePayAndCreate extends Locators {
 		Select sel2=new Select(ele2);
 		sel2.selectByVisibleText(IPPaySts);
 		driver.findElement(By.xpath(IPSrchBtn)).sendKeys(IPSrchBox12);
-
 		driver.findElement(By.xpath(IPCusEditBtn)).click();
 		driver.findElement(By.xpath(IPChngInvDate)).click();
 		driver.findElement(By.xpath(IPChngInvPayDatBtn)).click();
@@ -235,7 +231,9 @@ public class InvoicePayAndCreate extends Locators {
 	@Test(priority = 9,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC10() throws InterruptedException {
 		TC01();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPCusEditBtn)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyBtn)).click();
 		driver.findElement(By.xpath(IPChMntPySavBtn)).click();
 		Thread.sleep(2000);
@@ -520,6 +518,8 @@ public class InvoicePayAndCreate extends Locators {
 		driver.findElement(By.xpath(IPChMntPyMrgeBtn)).click();
 	}
 
+	
+	
 	@Test(priority = 24,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC25() throws InterruptedException {
 		TC10();
@@ -529,6 +529,7 @@ public class InvoicePayAndCreate extends Locators {
 		act.click().build().perform();
 		element.click();
 		Thread.sleep(2000);
+		
 		driver.findElement(By.xpath(IPChMntPyRcdPymts)).click();
 		driver.findElement(By.xpath(IPChMntPyRcdPyPrnt)).click();
 	}
@@ -543,6 +544,23 @@ public class InvoicePayAndCreate extends Locators {
 		element.click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyMonCRM)).click();
+		Thread.sleep(2000);
+		ele1=driver.findElement(By.id("crmname"));
+		Select sel=new Select(ele1);
+		sel.selectByVisibleText("Select Name in CRM");
+		ele2=driver.findElement(By.name("productionescalation"));
+		String attribute = ele2.getAttribute("value");
+		int length = attribute.length();
+		for(int i=0;i<length;i++) {
+			ele2.sendKeys(Keys.BACK_SPACE);
+		}
+		
+		ele3=driver.findElement(By.name("firstyearproduction"));
+		String attribute1 = ele3.getAttribute("value");
+		int length1 = attribute1.length();
+		for(int i=0;i<length1;i++) {
+			ele3.sendKeys(Keys.BACK_SPACE);
+		}
 		driver.findElement(By.xpath(IPChMntPyMonCRMUpd)).click();
 		//	driver.switchTo().alert().accept();
 		//Mandatory message check for multiple elements at a same time
@@ -564,7 +582,7 @@ public class InvoicePayAndCreate extends Locators {
 		Actions act=new Actions(driver);
 		act.click().build().perform();
 		element.click();
-		Thread.sleep(4000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyMonCRM)).click();
 		Thread.sleep(2000);
 		ele1=driver.findElement(By.id(IPChMntPyMonCRMDD));

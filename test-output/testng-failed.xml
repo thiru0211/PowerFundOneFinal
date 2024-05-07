@@ -6,7 +6,7 @@
       <class name="allPages.InvoicePayAndCreate">
         <methods>
           <include name="setUp"/>
-          <include name="TC13"/>
+          <include name="TC15"/>
           <include name="launch"/>
           <include name="tearDown"/>
         </methods>
