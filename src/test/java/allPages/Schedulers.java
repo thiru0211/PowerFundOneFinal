@@ -34,7 +34,8 @@ public class Schedulers extends Locators{
 		driver.manage().window().maximize(); 
 		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(1));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
-		driver.get("http://192.168.1.36:90/#/auth");
+		//driver.get("http://192.168.1.36:90/#/auth");
+		driver.get("https://ezeemx.com/CGIV2/auth");
 		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 		FileInputStream FIS=new FileInputStream(file);
 		Properties prop=new Properties();
@@ -211,6 +212,7 @@ public class Schedulers extends Locators{
 	@Test(priority = 13,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC13() throws InterruptedException {
 		NoPaymentBtn();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(NoPayExtAddUsrBtn)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(NoPayExtAddUsrSavBtn)).click();
@@ -237,6 +239,7 @@ public class Schedulers extends Locators{
 		NoPaymentBtn();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(NoPayExtAddUsrBtn)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(NoPayExtClsBtn)).click();
 	}
 
@@ -259,12 +262,14 @@ public class Schedulers extends Locators{
 	@Test(priority = 17,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC17() throws InterruptedException {
 		NoPaymentBtn();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(NoPaySavBtn)).click();
 	}
 
 	@Test(priority = 18,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC18() throws InterruptedException {
 		NoPaymentBtn();
+		Thread.sleep(2000);
 		String NPSignUsrID=PropertyFileReader.propertymap.get("NPSignUsrID");
 		ele1=driver.findElement(By.xpath(NoPayEmailSign));
 		Select sel=new Select(ele1);

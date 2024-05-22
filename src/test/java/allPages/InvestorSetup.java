@@ -21,6 +21,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
@@ -31,7 +32,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class InvestorSetup extends Locators {
 
-	public static WebDriver driver;
 	public static WebDriverWait wait;
 	public static WebElement ele1,ele2,ele3,ele4,ele5;
 
@@ -44,7 +44,8 @@ public class InvestorSetup extends Locators {
 		driver.manage().window().maximize(); 
 		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(1));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
-		driver.get("http://192.168.1.36:90/#/auth");
+		//driver.get("http://192.168.1.36:90/#/auth");
+		driver.get("https://ezeemx.com/CGIV2/auth");
 		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 		FileInputStream FIS=new FileInputStream(file);
 		Properties prop=new Properties();
@@ -66,9 +67,13 @@ public class InvestorSetup extends Locators {
 		driver.findElement(By.name(Email)).sendKeys(EmailId);
 		driver.findElement(By.name(Password)).sendKeys(Passwrd);
 		driver.findElement(By.id(LoginBtn)).click();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		driver.findElement(By.xpath(SetupBtn)).click();
-		driver.findElement(By.xpath(InvestorBtn)).click();
+		Thread.sleep(5000);
+		ele2=driver.findElement(By.xpath(InvestorBtn));
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(InstallerBtn)));
+		ele2.click();
 	}
 
 	@Test(priority = 2,retryAnalyzer = ReRunFailedTestCase.class)
@@ -116,15 +121,15 @@ public class InvestorSetup extends Locators {
 		driver.findElement(By.xpath(InvstrAddBtn)).click();
 		driver.findElement(By.name(InvstrName)).sendKeys(InvestName);
 		driver.findElement(By.xpath(InvstrEnblBtn)).click();
-
+		Thread.sleep(2000);
 		ele1=driver.findElement(By.name(InvstrCntry));
 		Select country=new Select(ele1);
 		country.selectByVisibleText(InvestCntry);
-
+		Thread.sleep(2000);
 		ele2 = driver.findElement(By.name(InvstrState));
 		Select state=new Select(ele2);
 		state.selectByVisibleText(InvestState);
-
+		Thread.sleep(2000);
 		driver.findElement(By.name(InvstrAdd1)).sendKeys(InvestAdd1);
 		driver.findElement(By.name(InvstrAdd2)).sendKeys(InvestAdd2);
 		driver.findElement(By.name(InvstrCity)).sendKeys(InvestCity);
@@ -164,15 +169,15 @@ public class InvestorSetup extends Locators {
 		driver.findElement(By.xpath(InvstrAddBtn)).click();
 		driver.findElement(By.name(InvstrName)).sendKeys(InvestName);
 		driver.findElement(By.xpath(InvstrEnblBtn)).click();
-
+		Thread.sleep(2000);
 		ele1=driver.findElement(By.name(InvstrCntry));
 		Select country=new Select(ele1);
 		country.selectByVisibleText(InvestCntry);
-
+		Thread.sleep(2000);
 		ele2 = driver.findElement(By.name(InvstrState));
 		Select state=new Select(ele2);
 		state.selectByVisibleText(InvestState);
-
+		Thread.sleep(2000);
 		driver.findElement(By.name(InvstrAdd1)).sendKeys(InvestAdd1);
 		driver.findElement(By.name(InvstrAdd2)).sendKeys(InvestAdd2);
 		driver.findElement(By.name(InvstrCity)).sendKeys(InvestCity);
@@ -204,6 +209,8 @@ public class InvestorSetup extends Locators {
 		while (!ele1.getAttribute("value").isEmpty()) {
 			ele1.sendKeys(Keys.BACK_SPACE);
 		}
+		
+		Thread.sleep(3000);
 		ele1.sendKeys(InvestCity);
 		driver.findElement(By.xpath(InvstrSaveBtn)).click();	
 	}
@@ -272,7 +279,7 @@ public class InvestorSetup extends Locators {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstrAttachBtn)).click();
 		Thread.sleep(2000);
-		String FilePath="C:\\Users\\thirumaran\\Desktop\\Screenshot 2024-03-06 105214.png";
+		String FilePath="C:\\Users\\thirumaran\\OneDrive\\Desktop\\Screenshot 2024-03-06 105214.png";
 		Robot robot = new Robot();
 		StringSelection selection = new StringSelection(FilePath);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
@@ -285,14 +292,15 @@ public class InvestorSetup extends Locators {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstrTranSavBtn)).click();
 		Thread.sleep(2000);
-		WebElement element3 = driver.findElement(By.xpath("//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div/div/div[2]/button"));
+		WebElement element3 = driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div[2]/div/table/tbody/tr[1]"));
 		if(element3.isDisplayed()) {
-			System.out.println("Test Failed because File uploaded sucessfully but page shows need to upload toast");
+			System.out.println("File uploaded sucessfully");
+			String text = element3.getText();
+			System.out.print(text);
 		}
 		else {
-			WebElement element2 = driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/form/div/div[2]/div[6]/div[2]/div/div/div/h6"));
-			String text = element2.getText();
-			System.out.println(text);		
+			
+			System.out.println("Test Failed because File uploaded sucessfully but page shows need to upload toast");
 		}
 	}
 
@@ -323,7 +331,7 @@ public class InvestorSetup extends Locators {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstrAttachBtn)).click();
 		Thread.sleep(2000);
-		String FilePath="C:\\Users\\thirumaran\\Desktop\\Screenshot 2024-03-06 105214.png";
+		String FilePath="C:\\Users\\thirumaran\\OneDrive\\Desktop\\Screenshot 2024-03-06 105214.png";
 		Robot robot = new Robot();
 		StringSelection selection = new StringSelection(FilePath);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
@@ -369,17 +377,17 @@ public class InvestorSetup extends Locators {
 		driver.findElement(By.xpath(InvstrEditBtn)).click();
 		Thread.sleep(2000);
 		String expectedUrl = driver.getCurrentUrl();
-		driver.findElement(By.xpath(InvstrTransBtn)).click();
 		Thread.sleep(2000);
 		WebElement element = driver.findElement(By.xpath(InvstrActBtn));
 		Actions act=new Actions(driver);
 		act.click().build().perform();
 		element.click();
-		driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[5]/div/div/div/div[3]/div/div")).click();
+		//Click Add Customers
+		driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[4]/div/div/div/div[2]/div/div")).click();
 		Thread.sleep(2000);
 		String currentUrl = driver.getCurrentUrl();
 		if(!(currentUrl==expectedUrl)) {
-			System.out.println("Page shows Customer details");
+			System.out.println("Page shows Customer Dropdown");
 		}
 	}
 
@@ -547,14 +555,12 @@ public class InvestorSetup extends Locators {
 		driver.findElement(By.xpath(InvstrEditBtn)).click();
 		driver.findElement(By.xpath(InvstrTransBtn)).click();
 		Thread.sleep(2000);
-		ele1=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div[2]/p"));
+		ele1=driver.findElement(By.xpath(InvstrDwldBtn));
 		if(ele1.isDisplayed()) {
-			System.out.println("\033[1m No transcation is found due to Attachment is not working \033[0m");
-		}
-		
+			System.out.println("\033[1m Transcation is found \033[0m");
+			ele1.click();		}
 		else {
-		
-		driver.findElement(By.xpath(InvstrDwldBtn)).click();		
+			System.out.println("\033[1m No transcation is found due to Attachment is not working \033[0m");
 	}	
 	}
 	
@@ -575,14 +581,15 @@ public class InvestorSetup extends Locators {
 		Actions act=new Actions(driver);
 		act.click().build().perform();
 		element1.click();
-		ele1=driver.findElement(By.xpath(InvstrCusUpdBtn));		
-		try {
-		    // Click the button
-		    ele1.click();
-		  } catch (Exception e) {
-		    // Handle the exception and fail the test
-		    fail("Button click failed with exception: " + e.getMessage());
-		  }
+		ele1=driver.findElement(By.xpath(InvstrCusUpdBtn));	
+		 ele1.click();
+//		try {
+//		    // Click the button
+//		    ele1.click();
+//		  } catch (Exception e) {
+//		    // Handle the exception and fail the test
+//		    fail("Button click failed with exception: " + e.getMessage());
+//		  }
 	}
 
 	@Test(priority = 24,retryAnalyzer = ReRunFailedTestCase.class)
@@ -602,7 +609,7 @@ public class InvestorSetup extends Locators {
 		element1.click();
 		driver.findElement(By.xpath(InvstrAddCusBtn)).click();
 		driver.findElement(By.xpath(InvstrSelInstlrDD)).sendKeys(InvestInslrDD);
-		driver.findElement(By.xpath(InvstrCusName)).sendKeys(InvestCusID1);
+		//driver.findElement(By.xpath(InvstrCusName)).sendKeys(InvestCusID1);
 		driver.findElement(By.xpath(InvstrCusChckBox)).click();
 		Thread.sleep(2000);
 		WebElement element2 = driver.findElement(By.xpath(InvstrActBtn));
@@ -610,7 +617,6 @@ public class InvestorSetup extends Locators {
 		element2.click();
 		driver.findElement(By.xpath(InvstrCusSavBtn)).click();		
 	}
-
 
 	@Test(priority = 25,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC25() throws InterruptedException, AWTException {
@@ -631,6 +637,7 @@ public class InvestorSetup extends Locators {
 		ele1=driver.findElement(By.xpath(InvstrFileToast));
 		if(ele1.isDisplayed()) {
 			System.out.println("Need to enter File name and it is mandatory");
+			ele1.click();
 		}
 	}
 	
@@ -692,7 +699,7 @@ public class InvestorSetup extends Locators {
 		driver.findElement(By.name(InvstrFileName)).sendKeys(InvestFileName);
 		driver.findElement(By.xpath(InvstrFileUpldBtn)).click();
 		Thread.sleep(2000);
-		String FilePath="C:\\Users\\thirumaran\\Desktop\\New XLSX Worksheet.xlsx";
+		String FilePath="C:\\Users\\thirumaran\\OneDrive\\Desktop\\New XLSX Worksheet.xlsx";
 		Robot robot = new Robot();
 		StringSelection selection = new StringSelection(FilePath);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
@@ -704,14 +711,12 @@ public class InvestorSetup extends Locators {
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		Thread.sleep(2000);
 		WebElement element3 = driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/form/div/div[3]/div[2]/div[1]/div/div/h6"));
-
 		if(element3.isDisplayed()) {
 			System.out.println("File uploaded sucessfully");
 		}
 		else {
 			System.out.println("File not uploaded");
 		}
-
 		driver.findElement(By.name(InvstrShowDashBrdYes)).click();		
 		driver.findElement(By.xpath(InvstrShowToInvstrNo)).click();	
 		driver.findElement(By.xpath(InvstrFileAddSaveBtn)).click();		

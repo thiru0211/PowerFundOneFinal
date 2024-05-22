@@ -18,6 +18,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
@@ -40,7 +41,8 @@ public class InstallerSetup extends Locators  {
 		driver.manage().window().maximize(); 
 		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(1));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
-		driver.get("http://192.168.1.36:90/#/auth");
+		//driver.get("http://192.168.1.36:90/#/auth");
+		driver.get("https://ezeemx.com/CGIV2/auth");
 		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 		FileInputStream FIS=new FileInputStream(file);
 		Properties prop=new Properties();
@@ -52,6 +54,7 @@ public class InstallerSetup extends Locators  {
 		Thread.sleep(3000);
 		driver.quit();
 	}
+	
 	@Test(priority = 1,retryAnalyzer = ReRunFailedTestCase.class)
 	public void InstallerBtnClick() throws InterruptedException {
 		PropertyFileReader.propertyRead();
@@ -60,9 +63,14 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.name(Email)).sendKeys(EmailId);
 		driver.findElement(By.name(Password)).sendKeys(Passwrd);
 		driver.findElement(By.id(LoginBtn)).click();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		driver.findElement(By.xpath(SetupBtn)).click();
-		driver.findElement(By.xpath(InstallerBtn)).click();
+		Thread.sleep(5000);
+		ele2=driver.findElement(By.xpath(InstallerBtn));
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(InstallerBtn)));
+		ele2.click();
+		
 		ele1=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[1]/div[1]/span[2]/div/select"));
 		Select sel=new Select(ele1);
 		sel.selectByVisibleText("All");
@@ -92,6 +100,7 @@ public class InstallerSetup extends Locators  {
 		ele2=driver.findElement(By.name(InstCntryDD));
 		Select sel=new Select(ele2);
 		sel.selectByVisibleText(CntryDD);
+		Thread.sleep(3000);
 		ele3=driver.findElement(By.name(InstStateDD));
 		Select sel1=new Select(ele3);
 		sel1.selectByVisibleText(StateDD);
@@ -107,7 +116,6 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.name(InstCrmUrl)).sendKeys(CRMUrl);
 		driver.findElement(By.xpath(InstApiActNo)).click();
 	}
-
 
 	@Test(priority = 2,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC01() throws InterruptedException, AWTException {
@@ -129,6 +137,7 @@ public class InstallerSetup extends Locators  {
 	@Test(priority = 4,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC02() throws InterruptedException, AWTException {
 		EnterAllDetails();
+		Thread.sleep(3000);
 		driver.findElement(By.id(InstClrBtn)).click();
 	}
 
@@ -161,6 +170,7 @@ public class InstallerSetup extends Locators  {
 		ele2=driver.findElement(By.name(InstCntryDD));
 		Select sel=new Select(ele2);
 		sel.selectByVisibleText(CntryDD);
+		Thread.sleep(3000);
 		ele3=driver.findElement(By.name(InstStateDD));
 		Select sel1=new Select(ele3);
 		sel1.selectByVisibleText(StateDD);
@@ -184,6 +194,7 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.xpath(InstAddBtn)).click();
 		driver.findElement(By.xpath(InstBackBtn)).click();
 	}
+	
 	@Test(priority = 8,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC07() throws InterruptedException, AWTException {
 		InstallerBtnClick();
@@ -234,6 +245,7 @@ public class InstallerSetup extends Locators  {
 		ele2=driver.findElement(By.name(InstCntryDD));
 		Select sel=new Select(ele2);
 		sel.selectByVisibleText(CntryDD);
+		Thread.sleep(3000);
 		ele3=driver.findElement(By.name(InstStateDD));
 		Select sel1=new Select(ele3);
 		sel1.selectByVisibleText(StateDD);
@@ -279,12 +291,16 @@ public class InstallerSetup extends Locators  {
 		element.click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(EditInstaller)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.id(InstResetBtn)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.name(InstName)).sendKeys(ModifiedInstName);
 		ele4=driver.findElement(By.xpath(InstStatusDSbl));
 		ele4.click();
 		ele2=driver.findElement(By.name(InstCntryDD));
 		Select sel=new Select(ele2);
 		sel.selectByVisibleText(CntryDD);
+		Thread.sleep(3000);
 		ele3=driver.findElement(By.name(InstStateDD));
 		Select sel1=new Select(ele3);
 		sel1.selectByVisibleText(StateDD);
@@ -328,12 +344,16 @@ public class InstallerSetup extends Locators  {
 		element.click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(EditInstaller)).click();
+		Thread.sleep(2000);
+		driver.findElement(By.id(InstResetBtn)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.name(InstName)).sendKeys(ModifiedInstName);
 		ele4=driver.findElement(By.xpath(InstStatusEnbl));
 		ele4.click();
 		ele2=driver.findElement(By.name(InstCntryDD));
 		Select sel=new Select(ele2);
 		sel.selectByVisibleText(CntryDD);
+		Thread.sleep(3000);
 		ele3=driver.findElement(By.name(InstStateDD));
 		Select sel1=new Select(ele3);
 		sel1.selectByVisibleText(StateDD);
@@ -417,7 +437,7 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.name(InvstRemarks)).sendKeys(Remarks);
 		driver.findElement(By.xpath(InvstDocAttach)).click();
 		Thread.sleep(2000);
-		String FilePath="C:\\Users\\thirumaran\\Desktop\\Screenshot 2024-03-06 105214.png";
+		String FilePath="C:\\Users\\thirumaran\\OneDrive\\Desktop\\Screenshot 2024-03-06 105214.png";
 		Robot robot = new Robot();
 		StringSelection selection = new StringSelection(FilePath);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
@@ -458,7 +478,7 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.name(InvstRemarks)).sendKeys(Remarks);
 		driver.findElement(By.xpath(InvstDocAttach)).click();
 		Thread.sleep(2000);
-		String FilePath="C:\\Users\\thirumaran\\Desktop\\Screenshot 2024-03-06 105214.png";
+		String FilePath="C:\\Users\\thirumaran\\OneDrive\\Desktop\\Screenshot 2024-03-06 105214.png";
 		Robot robot = new Robot();
 		StringSelection selection = new StringSelection(FilePath);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
@@ -489,7 +509,7 @@ public class InstallerSetup extends Locators  {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstDocAttach)).click();
 		Thread.sleep(2000);
-		String FilePath="C:\\Users\\thirumaran\\Desktop\\Screenshot 2024-03-06 105214.png";
+		String FilePath="C:\\Users\\thirumaran\\OneDrive\\Desktop\\Screenshot 2024-03-06 105214.png";
 		Robot robot = new Robot();
 		StringSelection selection = new StringSelection(FilePath);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
@@ -500,9 +520,9 @@ public class InstallerSetup extends Locators  {
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		Thread.sleep(2000);
-//		WebElement element2 = driver.findElement(By.xpath("//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div[2]/form/div/div[1]/div[6]/div/div/div/h6"));
-//		String text = element2.getText();
-//		System.out.println(text);		
+		//		WebElement element2 = driver.findElement(By.xpath("//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div[2]/form/div/div[1]/div[6]/div/div/div/h6"));
+		//		String text = element2.getText();
+		//		System.out.println(text);		
 	}
 
 	@Test(priority = 17,retryAnalyzer = ReRunFailedTestCase.class)
@@ -552,6 +572,7 @@ public class InstallerSetup extends Locators  {
 		String InstSearchName=PropertyFileReader.propertymap.get("InstSearchName");
 		ele1=driver.findElement(By.xpath(InstSearchBtn));
 		ele1.sendKeys(InstSearchName);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(InstEditBtn)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstEditBtn)).click();
@@ -566,6 +587,7 @@ public class InstallerSetup extends Locators  {
 		String InstSearchName=PropertyFileReader.propertymap.get("InstSearchName");
 		ele1=driver.findElement(By.xpath(InstSearchBtn));
 		ele1.sendKeys(InstSearchName);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(InstEditBtn)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstEditBtn)).click();
@@ -586,6 +608,7 @@ public class InstallerSetup extends Locators  {
 		Thread.sleep(2000);
 		ele1=driver.findElement(By.xpath(InstSearchBtn));
 		ele1.sendKeys(InstSearchName);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(InstEditBtn)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstEditBtn)).click();
@@ -598,6 +621,7 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.name(InvstRemarks)).sendKeys(Remarks);
 		driver.findElement(By.xpath(InvstSaveBtn)).click();
 	}
+	
 	@Test(priority = 23,retryAnalyzer = ReRunFailedTestCase.class, enabled=false, 
 			description = "After file upload page goes to blank page")
 	public void TC24() throws InterruptedException, AWTException {
@@ -616,7 +640,7 @@ public class InstallerSetup extends Locators  {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstDocAttach)).click();
 		Thread.sleep(2000);
-		String FilePath="C:\\Users\\thirumaran\\Desktop\\Screenshot 2024-03-06 105214.png";
+		String FilePath="C:\\Users\\thirumaran\\OneDrive\\Desktop\\Screenshot 2024-03-06 105214.png";
 		Robot robot = new Robot();
 		StringSelection selection = new StringSelection(FilePath);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
@@ -627,7 +651,7 @@ public class InstallerSetup extends Locators  {
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		Thread.sleep(2000);
-		
+
 		WebElement element2 = driver.findElement(By.xpath("//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div[2]/form/div/div[1]/div[6]/div/div/div/h6"));
 		String text = element2.getText();
 		System.out.println(text);		
@@ -640,13 +664,14 @@ public class InstallerSetup extends Locators  {
 		String InstSearchName=PropertyFileReader.propertymap.get("InstSearchName");
 		ele1=driver.findElement(By.xpath(InstSearchBtn));
 		ele1.sendKeys(InstSearchName);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(InstEditBtn)).click();
 		driver.findElement(By.xpath(InvstBankSetupBtn)).click();
 		String checkBoxXpath = "//*[@id=\"kt_content_container\"]/div[2]/div/div[1]/table/thead/tr/th[5]/input";
 		WebElement checkBox = driver.findElement(By.xpath(checkBoxXpath));
 		checkBox.click();		
 	}
-	
+
 	@Test(priority = 25,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC26() throws InterruptedException, AWTException {
 		InstallerBtnClick();
@@ -657,13 +682,15 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.xpath(InstEditBtn)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstNSFSetupBtn)).click();
-		Thread.sleep(2000);
+		Thread.sleep(4000);
 		driver.findElement(By.xpath(InvstNSFSetupUpdBtn)).click();
 		Thread.sleep(2000);
 		ele2=driver.findElement(By.xpath(InvstNSFSetupAlrtBtn));
 		Thread.sleep(2000);
 		if(ele2.isDisplayed()) {
+			String text = ele2.getText();			
 			System.out.println("Sucessfull Message is shown");
+			System.out.println("Sucessfull Message is shows like: " + text);
 		}
 		else {
 			System.out.println("Sucessfull Message is not shown");
@@ -693,7 +720,7 @@ public class InstallerSetup extends Locators  {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstNSFStpClrBtn)).click();
 	}
-	
+
 	@Test(priority = 27,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC28() throws InterruptedException, AWTException {
 		InstallerBtnClick();
@@ -716,8 +743,7 @@ public class InstallerSetup extends Locators  {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstNSFStpUpdBtn)).click();
 	}
-	
-	
+
 	@Test(priority = 28,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC29() throws InterruptedException, AWTException {
 		InstallerBtnClick();
@@ -726,10 +752,13 @@ public class InstallerSetup extends Locators  {
 		String Amount=PropertyFileReader.propertymap.get("Amount");
 		ele1=driver.findElement(By.xpath(InstSearchBtn));
 		ele1.sendKeys(InstSearchName);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(InstEditBtn)).click();
 		driver.findElement(By.xpath(InvstNSFSetupBtn)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstNSFStpYesRadBtn)).click();
+		driver.findElement(By.xpath(InvstNSFStpClrBtn)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.name(InvstNSFStpAmtBtn)).sendKeys(Amount);
 		driver.findElement(By.name(InvstNSFStpSepTranBtn)).click();
 		Thread.sleep(2000);
@@ -743,7 +772,7 @@ public class InstallerSetup extends Locators  {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstNSFStpUpdBtn1)).click();
 	}
-	
+
 	@Test(priority = 29,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC30() throws InterruptedException, AWTException {
 		InstallerBtnClick();
@@ -756,6 +785,8 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.xpath(InvstNSFSetupBtn)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstNSFStpYesRadBtn)).click();
+		driver.findElement(By.xpath(InvstNSFStpClrBtn)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.name(InvstNSFStpAmtBtn)).sendKeys(Amount);
 		Thread.sleep(2000);
 		driver.findElement(By.name(InvstNSFStpMonPayBtn)).click();
@@ -770,7 +801,7 @@ public class InstallerSetup extends Locators  {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstNSFStpUpdBtn1)).click();
 	}
-	
+
 	@Test(priority = 30,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC31() throws InterruptedException, AWTException {
 		InstallerBtnClick();
@@ -788,6 +819,6 @@ public class InstallerSetup extends Locators  {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(InvstNSFStpActBckBtn)).click();
 	}
-	
-	}
+
+}
 

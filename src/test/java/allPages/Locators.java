@@ -29,7 +29,7 @@ public class Locators extends BaseClass{
 	public String SubmitBtn="btn btn-primary";
 	public String OtpBox="twoFA";
 
-	public String AdminBtn="//*[@id=\"#kt_aside_menu\"]/div[7]/span/span[2]";
+	public String AdminBtn="/html/body/div/div[2]/div[1]/div[2]/div/div/div[7]/span/span[2]";
 	public String ViewUserBtn="//*[@id=\"#kt_aside_menu\"]/div[7]/div/div[1]/a/span[2]";
 	public String ViewUserStsDD="//*[@id=\"kt_content_container\"]/div/div[1]/div[1]/span[2]/div/select";
 	public String ViewUserAct="//*[@id=\"kt_content_container\"]/form/div/div[1]/div[2]/a";
@@ -69,7 +69,7 @@ public class Locators extends BaseClass{
 	public String VUTimeShtAccDsblBtn="no";//name
 	public String VUInstMap="//*[@id=\"kt_content_container\"]/div[1]/div[2]/ul/li[2]/a/span";
 	public String VUInstMapSpcInst="no";
-	public String VUSpcInstTestCckbx="1";
+	public String VUSpcInstTestCckbx="//*[@id=\"kt_content_container\"]/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div/input";
 	public String VUTestCckbxActEdtUsr="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[4]/div/div/div/div[1]/div/a";
 	public String VUTestCckbxActEdtUsr1="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div[3]/div/div/div/div[1]/div/a";
 
@@ -193,11 +193,11 @@ public class Locators extends BaseClass{
 	public String InstApiActYes="//*[@id=\"kt_content_container\"]/form/div/div[2]/div[15]/div[2]/label/div/input";
 	public String InstApiActNo="//*[@id=\"kt_content_container\"]/form/div/div[2]/div[15]/div[2]/label/div/span/input";	
 	public String InstActionsBtn="//*[text()='Action']";
-	public String EditInstaller="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[5]/div/div/div/div[1]/div/div";
+	public String EditInstaller="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[4]/div/div/div/div[1]/div/div";
 	public String InstUpdateBtn="//*[@id=\"kt_content_container\"]/form/div/div[3]/button[2]";
 	public String InstResetBtn="reset1";
-	public String InvstDetails="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[5]/div/div/div/div[2]/div/div";
-	public String InvstClseBtn="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/button";
+	public String InvstDetails="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[4]/div/div/div/div[2]/div/div";
+	public String InvstClseBtn="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/button/span";
 	public String InvstTraDate="Transactiondate"; //name
 	public String InvstAmount="Amount"; //name
 	public String InvstBankname="Bankname"; //name
@@ -212,7 +212,7 @@ public class Locators extends BaseClass{
 	public String InvstCloseBtn="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/button/span";
 	public String InvstBankSetupBtn="//*[@id=\"kt_content_container\"]/div[1]/div[2]/ul/li[2]/a";
 	public String InvstNSFSetupBtn="//*[@id=\"kt_content_container\"]/div[1]/div[2]/ul/li[3]/a";
-	public String InvstNSFSetupUpdBtn="//*[@id=\"kt_content_container\"]/form/div/div/div[4]/button[2]";
+	public String InvstNSFSetupUpdBtn="//*[@id=\"kt_content_container\"]/form/div/div/div[6]/button[2]";
 	public String InvstNSFSetupAlrtBtn="//div[text()='Updated Successfully']";
 	public String InvstNSFStpNoRadBtn="//*[@id=\"kt_content_container\"]/form/div/div/div[1]/div[2]/div/input";
 	public String InvstNSFStpYesRadBtn="//*[@id=\"kt_content_container\"]/form/div/div/div[1]/div[2]/div/span/input";
@@ -224,8 +224,8 @@ public class Locators extends BaseClass{
 	public String InvstNSFStpAmtBtn="Amount";//name 
 	public String InvstNSFStpSepTranBtn="ST";//name
 	public String InvstNSFStpMonPayBtn="MP";//name
-	public String InvstNSFStpActBtn="//*[@id=\"kt_content_container\"]/div/div[1]/div/div/div[5]/div/div/a";
-	public String InvstNSFStpActBckBtn="//*[@id=\"kt_content_container\"]/div/div[1]/div/div/div[5]/div/div/div/a/div/div/div";
+	public String InvstNSFStpActBtn="//*[@id=\"kt_content_container\"]/div/div[1]/div/div/div[4]/div/div/a";
+	public String InvstNSFStpActBckBtn="//*[@id=\"kt_content_container\"]/div/div[1]/div/div/div[4]/div/div/div/a/div/div/div";
 
 
 
@@ -254,9 +254,9 @@ public class Locators extends BaseClass{
 	public String InvstrSaveBtn="//*[@id=\"kt_content_container\"]/form/div/div[3]/button[2]";
 	public String InvstrBackBtn="//*[@id=\"kt_content_container\"]/form/div/div[1]/div[1]/div[2]/a/a";
 	public String InvstrActBtn="//*[text()='Action']";
-	public String EditInvstrBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[5]/div/div/div/div[1]/div/div";
+	public String EditInvstrBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[4]/div/div/div/div[1]/div/div";
 	public String InvstrTransBtn="//*[@id=\"kt_content_container\"]/div[1]/div[2]/ul/li[2]/a";
-	public String InvstrAddTans="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[5]/div/div/div/div[2]/div/div";
+	public String InvstrAddTans="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[4]/div/div/div/div[2]/div/div";
 	public String InvstrTranDate="Transactiondate";//name
 	public String InvstrTranAmt="Amount";//name
 	public String InvstrTranBank="Bankname";//name
@@ -266,13 +266,13 @@ public class Locators extends BaseClass{
 	public String InvstrTranSavBtn="//*[@id=\"kt_content_container\"]/form/div/div[2]/div[7]/button[2]";
 	public String InvstrTranClrBtn="//*[@id=\"kt_content_container\"]/form/div/div[2]/div[7]/button[1]";
 	public String InvstrTranBckBtn="//*[@id=\"kt_content_container\"]/form/div/div[1]/div[2]/a/a";
-	public String InvstrTranExcelBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[5]/div/div/div/div[3]/div/div";
-	public String InvstrActBckBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[5]/div/div/div/a/div/div/div";
-	public String InvstrAddCusBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[5]/div/div/div/div[2]/div/div";
-	public String InvstrSelInstlrDD="//select[@class='form-select form-select-solid form-select-lg']";
+	public String InvstrTranExcelBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[4]/div/div/div/div[3]/div/div";
+	public String InvstrActBckBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[4]/div/div/div/a/div/div/div";
+	public String InvstrAddCusBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[4]/div/div/div/div[2]/div/div";
+	public String InvstrSelInstlrDD="//*[@id=\"kt_content_container\"]/div[2]/div/div[2]/select";
 	public String InvstrCusName="//*[@id=\"kt_content_container\"]/div[2]/div[1]/div[3]/input";
 	public String InvstrCusChckBox="//*[@id=\"kt_content_container\"]/div[2]/div[2]/div/table/tbody/tr/td[8]/input";
-	public String InvstrCusSavBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[5]/div/div/div/div[2]/div/div";
+	public String InvstrCusSavBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[4]/div/div/div/div[2]/div/div";
 	public String SettingSymbol="//*[@id=\"kt_aside_toolbar\"]/div[1]/div[2]/div/div[2]/a/span";
 	public String SignOutBtn="//*[@id=\"kt_aside_toolbar\"]/div[1]/div[2]/div/div[2]/div/div[9]/a/div";
 	public String InvstrTranEditbtn="//*[@id=\"kt_content_container\"]/div[2]/div/table/tbody/tr/td[9]/span/a/span";
@@ -282,15 +282,15 @@ public class Locators extends BaseClass{
 	public String InvstrCusEditBtn="//*[@id=\"kt_table_users\"]/tbody/tr[1]/td[9]/div/div/a/span";
 	public String InvstrCusSrch="//*[@id=\"kt_content_container\"]/div[2]/div/div[1]/div[3]/input";
 	public String InvstrCusSelBtn="//*[@id=\"kt_content_container\"]/div[2]/div/div[2]/div/table/tbody/tr/td[8]/input";
-	public String InvstrCusUpdBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[5]/div/div/div/div[2]/div/div";
+	public String InvstrCusUpdBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[4]/div/div/div/div[2]/div/div";
 	public String InvstrDocuBtn="//*[@id=\"kt_content_container\"]/div[1]/div[2]/ul/li[3]/a";
 	public String InvstrViewBtn="//*[@id=\"kt_content_container\"]/div[2]/div/table/tbody/tr[1]/td[8]/span/a/span";
 	public String InvstrDocUpdBtn="//button[@class='btn btn-primary btn-sm']";
 	public String InvstrDocBckBtn="//*[@id=\"kt_content_container\"]/form/div/div[1]/a/div/div";
 	public String InvstrDocDwldBtn="//*[@id=\"kt_content_container\"]/div[2]/div/table/tbody/tr[1]/td[3]";
-	public String InvstrAddDocBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[5]/div/div/div/div[2]/div/div";
+	public String InvstrAddDocBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[4]/div/div/div/div[2]/div/div";
 	public String InvstrFileName="Filename"; //name
-	public String InvstrFileToast="//*[@id=\"kt_content_container\"]/form/div/div[2]/div/div[2]/div";
+	public String InvstrFileToast="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div/div/div[3]/button";
 	public String InvstrFileUpldBtn="//*[@id=\"kt_content_container\"]/form/div/div[3]/div[2]/label[2]/div/h6";
 	public String InvstrFileSaveBtn="//*[@id=\"kt_content_container\"]/form/div/div[5]/button";
 	public String InvstrShowDashBrdYes="yes"; //name
@@ -301,7 +301,7 @@ public class Locators extends BaseClass{
 	public String InvstrNewFeedBtn="//*[@id=\"kt_content_container\"]/div[1]/div[2]/ul/li[4]/a";
 	public String InvstrNewFeedViewIcon="//*[@id=\"kt_table_users\"]/tbody/tr[1]/td[7]/div/div/a/span";
 	public String InvstrNewFeedUpdBtn="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div[2]/form/div/div/div[5]/button";
-	public String InvstrAddFeedBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[5]/div/div/div/div[2]/div/div";
+	public String InvstrAddFeedBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[4]/div/div/div/div[2]/div/div";
 	public String InvstrAddFeedSaveBtn="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div[2]/form/div/div/div[4]/button";
 	public String InvstrFeedClsBtn="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/button/span";
 	public String InvstrAddFeedTitBtn="Title"; //name
@@ -312,7 +312,7 @@ public class Locators extends BaseClass{
 	public String InvstrAddShwNo="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div[2]/form/div/div/div[4]/div/div/span/input";	
 	public String InvstrNewFeedSaveBtn="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div[2]/form/div/div/div[5]/button";
 	public String InvstrRepBtn="//*[@id=\"kt_content_container\"]/div[1]/div[2]/ul/li[5]/a";
-	public String InvstrSubBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[5]/div/div/div/div[2]/div/div";
+	public String InvstrSubBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div/div/div[4]/div/div/div/div[2]/div/div";
 	public String CusGrpBtn="//*[@id=\"#kt_aside_menu\"]/div[6]/div/div[3]/a/span[2]";
 
 	public String CusSrchBox="//*[@id=\"kt_content_container\"]/div/div[1]/div[1]/div/input";
@@ -335,7 +335,7 @@ public class Locators extends BaseClass{
 	public String CusListBtn="//*[@id=\"#kt_aside_menu\"]/div[5]/div/div[1]/a/span[2]";
 	public String CusBankDD="installer";//name
 	public String CusListNameBox="searchtxt";//id
-	public String CusLisActBtn="//a[text()='Actions']";
+	public String CusLisActBtn="//*[@id=\"kt_content_container\"]/div/div[1]/div[2]/a";
 	public String CusAddActBtn="//*[@id=\"kt_content_container\"]/form/div/div[1]/div[2]/a";
 	public String CusListAddBtn="//*[@id=\"kt_content_container\"]/div/div[1]/div[2]/div/div[1]/a/div/div";
 	public String CusListActSavBtn="//*[@id=\"kt_content_container\"]/form/div/div[1]/div[2]/div/div[2]/div/div";
@@ -540,7 +540,7 @@ public class Locators extends BaseClass{
 	public String OSAddManPymnt="//*[@id=\"kt_content_container\"]/div/div[2]/div[1]/div[1]/div[2]/div/div[2]/div/div";
 	public String OSAddManSavBtn="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div[2]/form/div/div[2]/button";
 	public String OSAddManClsBtn="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/button/span";
-	public String OSAddManDueMnt="Duemonth";//name
+	public String OSAddManDueMnt="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div[2]/form/div[1]/div/div[1]/div[1]/input";
 	public String OSAddManPayBtn="yes";//name
 	public String OSAddManPyNSF="no";//name
 	public String OSAddMonPayAmt="Monthlypay";//name
@@ -568,7 +568,7 @@ public class Locators extends BaseClass{
 	public String ACHTransFileLog="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div[6]/div/a[1]/div/div/div";
 	public String ACHTransExcelExp="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div[6]/div/div/div/div";
 	public String ACHTransBckBtn="//*[@id=\"kt_content_container\"]/div[1]/div[1]/div[6]/div/a[2]/div/div/div";
-	public String ACHTransCusEditBtn="//*[@id=\"kt_content_container\"]/div[1]/div[3]/div/table/tbody/tr/td[11]/a";
+	public String ACHTransCusEditBtn="//*[@id=\"kt_content_container\"]/div[1]/div[3]/div/table/tbody/tr[1]/td[11]/a";
 	public String ACHTransCusEditBCkBtn="achback";//id
 
 	public String InvoiceLogBtn="//*[@id=\"#kt_aside_menu\"]/div[2]/div/div[5]/a/span[2]";
@@ -589,7 +589,7 @@ public class Locators extends BaseClass{
 	public String InvLogRsndYes="btnCnfmResendInvYes";//id
 	public String InvLogRsndNo="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div/div[3]/div/div[2]/div/div[1]/button";
 	public String InvLogDwldInv="//*[@id=\"btndownloadInvoice\"]/div/div";
-	public String InvLogDwldRecp="//*[@id=\"btndownloadreceipt\"]/div/div";
+	public String InvLogDwldRecp="//*[@id=\"btndownloadInvoice\"]/div/div";
 	public String InvLogDwldAll="//*[@id=\"btndownloadall\"]/div/div";
 	public String InvLogVoidInv="//*[@id=\"btnVoidInvoice\"]/div/div";
 	public String InvLogVoidRmrk="Remarks";//name
@@ -622,13 +622,13 @@ public class Locators extends BaseClass{
 	public String NoPayActBtn="//*[@id=\"kt_content_container\"]/div[1]/div/div/div[4]/a";
 	public String NoPayStopBtn="//*[@id=\"kt_content_container\"]/div[1]/div/div/div[4]/div/div[1]/div/div";
 	public String NoPayRunBtn="//*[@id=\"kt_content_container\"]/div[1]/div/div/div[4]/div/div[2]/div/div";
-	public String NoPaySunBtn="Sunday";//name
+	public String NoPaySunBtn="SUNDAY";//name
 	public String NoPayMonBtn="MONDAY";//name
-	public String NoPayTueBtn="Tuesday";//name
-	public String NoPayWedBtn="Wednesday";//name
-	public String NoPayThurBtn="Thursday";//name
-	public String NoPayFriBtn="Friday";//name
-	public String NoPaySatBtn="Saturday";//name
+	public String NoPayTueBtn="TUESDAY";//name
+	public String NoPayWedBtn="WEDNESDAY";//name
+	public String NoPayThurBtn="THURSDAY";//name
+	public String NoPayFriBtn="FRIDAY";//name
+	public String NoPaySatBtn="SATURDAY";//name
 	public String NoPayAddUsr="//*[@id=\"kt_content_container\"]/div[3]/div[1]/div/a";
 	public String NoPayAddUsrSavBtn="//div[@class='btn btn-primary btn-sm text-end mb-3']";
 	public String NoPayAddUSrNameBtn="//a[@class='text-dark text-hover-primary  fs-6 ']";
@@ -641,7 +641,7 @@ public class Locators extends BaseClass{
 	public String NoPayExtAddUsrTyp="usertype";//name
 	public String NoPayExtClsBtn="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/button/span";
 	public String NoPaySavBtn="//*[@id=\"kt_content_container\"]/div[5]/div[2]/div[2]/div[2]/div/a";
-	public String NoPayEmailSign="//select[@class='form-control form-control-lg form-control-solid form-select mb-7']";
+	public String NoPayEmailSign="//*[@id=\"kt_content_container\"]/div[5]/div[2]/div[1]/div[2]/div[1]/select";
 
 	public String InvoicePayBtn="//*[@id=\"#kt_aside_menu\"]/div[5]/div/div[4]/a/span[2]";
 	public String IPBankDD="//*[@id=\"kt_content_container\"]/div/div[1]/div[1]/div[1]/select";

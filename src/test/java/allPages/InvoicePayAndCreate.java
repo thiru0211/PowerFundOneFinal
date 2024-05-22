@@ -37,12 +37,13 @@ public class InvoicePayAndCreate extends Locators {
 	public void setUp() throws IOException{
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions option=new ChromeOptions();
-//		option.addArguments("--headless=new");
+		option.addArguments("--headless=new");
 		driver=new ChromeDriver(option);
 		driver.manage().window().maximize(); 
 		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(1));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
-		driver.get("http://192.168.1.36:90/#/auth");
+		//driver.get("http://192.168.1.36:90/#/auth");
+		driver.get("https://ezeemx.com/CGIV2/auth");
 		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 		FileInputStream FIS=new FileInputStream(file);
 		Properties prop=new Properties();
@@ -99,7 +100,7 @@ public class InvoicePayAndCreate extends Locators {
 	}
 
 	@Test(priority = 2,retryAnalyzer = ReRunFailedTestCase.class)
-	public void TC02() throws InterruptedException {
+	public void TC02() throws InterruptedException{
 		TC01();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPCusEditBtn)).click();
@@ -547,7 +548,7 @@ public class InvoicePayAndCreate extends Locators {
 		Thread.sleep(2000);
 		ele1=driver.findElement(By.id("crmname"));
 		Select sel=new Select(ele1);
-		sel.selectByVisibleText("Select Name in CRM");
+		sel.selectByIndex(0);
 		ele2=driver.findElement(By.name("productionescalation"));
 		String attribute = ele2.getAttribute("value");
 		int length = attribute.length();
@@ -868,13 +869,15 @@ public class InvoicePayAndCreate extends Locators {
 	@Test(priority = 42,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC43() throws InterruptedException {
 		TC42();
+		Thread.sleep(2000);
 		String CISrchCust=PropertyFileReader.propertymap.get("CISrchCust");
 		ele3.sendKeys(CISrchCust);
 	}
 
 	@Test(priority = 43,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC44() throws InterruptedException {
-		TC43();
+		TC42();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(CIViewCusBtn)).click();
 	}
 
@@ -917,6 +920,7 @@ public class InvoicePayAndCreate extends Locators {
 	@Test(priority = 46,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC46() throws InterruptedException {
 		TC45();
+		Thread.sleep(2000);
 		String CIViewCustMPDes=PropertyFileReader.propertymap.get("CIViewCustMPDes");
 		String CIViewCustMPAmt=PropertyFileReader.propertymap.get("CIViewCustMPAmt");
 		//		Scanner scanner = new Scanner(System.in);
@@ -933,6 +937,7 @@ public class InvoicePayAndCreate extends Locators {
 	@Test(priority = 47,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC47() throws InterruptedException {
 		TC45();
+		Thread.sleep(2000);
 		String CIViewCustMPDes=PropertyFileReader.propertymap.get("CIViewCustMPDes");
 		String CIViewCustMPAmt=PropertyFileReader.propertymap.get("CIViewCustMPAmt");
 		//		Scanner scanner = new Scanner(System.in);
@@ -949,6 +954,7 @@ public class InvoicePayAndCreate extends Locators {
 	@Test(priority = 48,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC48() throws InterruptedException {
 		TC45();
+		Thread.sleep(2000);
 		String CIViewCustMPDes=PropertyFileReader.propertymap.get("CIViewCustMPDes");
 		String CIViewCustMPAmt=PropertyFileReader.propertymap.get("CIViewCustMPAmt");
 		//		Scanner scanner = new Scanner(System.in);

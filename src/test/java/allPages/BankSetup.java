@@ -16,6 +16,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
@@ -39,7 +41,8 @@ public class BankSetup extends Locators {
 		driver.manage().window().maximize(); 
 		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(1));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
-		driver.get("http://192.168.1.36:90/#/auth");
+		//driver.get("http://192.168.1.36:90/#/auth");
+		driver.get("https://ezeemx.com/CGIV2/auth");
 		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 		FileInputStream FIS=new FileInputStream(file);
 		Properties prop=new Properties();
@@ -60,10 +63,11 @@ public class BankSetup extends Locators {
 		driver.findElement(By.name(Email)).sendKeys(EmailId);
 		driver.findElement(By.name(Password)).sendKeys(Passwrd);
 		driver.findElement(By.id(LoginBtn)).click();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		driver.findElement(By.xpath(AdminBtn)).click();
-		Thread.sleep(3000);
+		Thread.sleep(5000);
 		driver.findElement(By.xpath(BankSetupBtn)).click();
+		Thread.sleep(3000);
 		ele1=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div/div[1]/div[1]/span[2]/div/select"));
 		Select sel=new Select(ele1);
 		sel.selectByVisibleText("ALL");
@@ -81,7 +85,6 @@ public class BankSetup extends Locators {
 		driver.findElement(By.xpath(AdminBtn)).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(AuthorizedNetClick)).click();
-
 	}
 
 	@Test(retryAnalyzer = ReRunFailedTestCase.class)
@@ -666,6 +669,5 @@ public class BankSetup extends Locators {
 		boolean enabled = ele1.isEnabled();
 		System.out.println("Search box is clickable:" + enabled);	
 	}
-
 }
 

@@ -34,7 +34,8 @@ public class Tickets extends Locators{
 		driver.manage().window().maximize(); 
 		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(1));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
-		driver.get("http://192.168.1.36:90/#/auth");
+		//driver.get("http://192.168.1.36:90/#/auth");
+		driver.get("https://ezeemx.com/CGIV2/auth");
 		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 		FileInputStream FIS=new FileInputStream(file);
 		Properties prop=new Properties();
@@ -72,7 +73,7 @@ public class Tickets extends Locators{
 		ele1=driver.findElement(By.xpath(TktInstDD));
 		Select sel1=new Select(ele1);
 		sel1.selectByVisibleText(TktInstName);
-		driver.findElement(By.xpath(TktCusName)).sendKeys(TktCustName);
+		//driver.findElement(By.xpath(TktCusName)).sendKeys(TktCustName);
 	}
 
 	@Test(priority =2 ,retryAnalyzer = ReRunFailedTestCase.class)

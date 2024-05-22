@@ -45,7 +45,8 @@ public class Login extends Locators{
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(1));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
-		driver.get("http://192.168.1.36:90/#/auth");
+		//driver.get("http://192.168.1.36:90/#/auth");
+		driver.get("https://ezeemx.com/CGIV2/auth");
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(1));
 		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 		FileInputStream FIS=new FileInputStream(file);
@@ -132,7 +133,7 @@ public class Login extends Locators{
 		}
 	}
 	
-	//Locked the mail Id
+	//Below test case is Locked the mail Id
 	
 	@Test(priority = 7,retryAnalyzer = ReRunFailedTestCase.class)
 	public void Login_TC7() throws InterruptedException {
