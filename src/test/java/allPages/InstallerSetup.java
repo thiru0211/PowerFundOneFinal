@@ -63,12 +63,11 @@ public class InstallerSetup extends Locators  {
 		driver.findElement(By.name(Email)).sendKeys(EmailId);
 		driver.findElement(By.name(Password)).sendKeys(Passwrd);
 		driver.findElement(By.id(LoginBtn)).click();
-		Thread.sleep(5000);
-		driver.findElement(By.xpath(SetupBtn)).click();
-		Thread.sleep(5000);
-		ele2=driver.findElement(By.xpath(InstallerBtn));
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(InstallerBtn)));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_content_container\"]/div[1]/div/div/div[5]/span")));
+		driver.findElement(By.xpath(SetupBtn)).click();
+		Thread.sleep(2000);
+		ele2=driver.findElement(By.xpath(InstallerBtn));
 		ele2.click();
 		
 		ele1=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[1]/div[1]/span[2]/div/select"));

@@ -449,8 +449,8 @@ public class Locators extends BaseClass{
 	public String CusEditEscRobtBtn="//*[@id=\"kt_content_container\"]/div/div[2]/div[2]/div/div[3]/div[2]/div/div/div[1]/div/div/div/input";
 	public String CusEditEscUpdBtn="//*[@id=\"kt_content_container\"]/div/div[2]/div[2]/div/div[3]/div[2]/div/div/div[3]/div/button";
 	public String CusEditBackBtn="//*[@id=\"kt_content_container\"]/div/div[1]/div/div/div[3]/div/a[7]/div/div/span";
-	public String CusEditViewBtn="//*[@id=\"kt_content_container\"]/div/div[2]/div[2]/div[4]/div[3]/div/table/tbody/tr/td[6]/i";
-	public String CusEditViewClseBtn="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/button/span";
+	public String CusEditViewBtn="//*[@id=\"kt_table_users\"]/tbody/tr[1]/td[6]/span/a";
+	public String CusEditViewClseBtn="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/button/span/span";
 
 
 	public String ACHFormBtn="//*[@id=\"#kt_aside_menu\"]/div[5]/div/div[2]/a/span[2]";
@@ -479,7 +479,7 @@ public class Locators extends BaseClass{
 	public String ACHSndBtn="//*[@id=\"kt_content_container\"]/div/div[2]/div/div[2]/div[8]/div/button";
 
 	public String ACHActBtn="//*[@id=\"kt_content_container\"]/div/div[2]/div[1]/div[1]/div[2]/a";
-	public String ACHActSndToSls="//*[@id=\"kt_content_container\"]/div/div[2]/div[1]/div[1]/div[2]/div/div[2]/a/div/div";
+	public String ACHActSndToSls="//*[@id=\"kt_content_container\"]/div/div[2]/div/div[1]/div[2]/div/div[2]/a/div/div";
 	public String ACHActCngPayDte="//*[@id=\"kt_content_container\"]/div/div[2]/div/div[1]/div[2]/div/div[3]/a/div/div";
 	public String ACHActCngPayDteBtn="//*[@id=\"kt_content_container\"]/div/div[2]/div/div[2]/div/div[3]/button";
 	public String ACHActCngPayMandChk="//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div";
@@ -501,7 +501,6 @@ public class Locators extends BaseClass{
 	public String ACHSndToCusSkpPyMan="//button[text()='Skip Payment']";
 	public String ACHSndToCusSkpPySrtMnt="startmonth";//name
 	public String ACHSndToCusSkpPyEndMnt="endmonth";//name
-
 
 
 

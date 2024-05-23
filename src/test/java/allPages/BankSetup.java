@@ -63,9 +63,10 @@ public class BankSetup extends Locators {
 		driver.findElement(By.name(Email)).sendKeys(EmailId);
 		driver.findElement(By.name(Password)).sendKeys(Passwrd);
 		driver.findElement(By.id(LoginBtn)).click();
-		Thread.sleep(5000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_content_container\"]/div[1]/div/div/div[5]/span")));
 		driver.findElement(By.xpath(AdminBtn)).click();
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(BankSetupBtn)).click();
 		Thread.sleep(3000);
 		ele1=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div/div[1]/div[1]/span[2]/div/select"));
@@ -81,7 +82,8 @@ public class BankSetup extends Locators {
 		driver.findElement(By.name(Email)).sendKeys(EmailId);
 		driver.findElement(By.name(Password)).sendKeys(Passwrd);
 		driver.findElement(By.id(LoginBtn)).click();
-		Thread.sleep(3000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_content_container\"]/div[1]/div/div/div[5]/span")));
 		driver.findElement(By.xpath(AdminBtn)).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(AuthorizedNetClick)).click();
@@ -95,7 +97,8 @@ public class BankSetup extends Locators {
 		driver.findElement(By.name(Email)).sendKeys(EmailId);
 		driver.findElement(By.name(Password)).sendKeys(Passwrd);
 		driver.findElement(By.id(LoginBtn)).click();
-		Thread.sleep(3000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_content_container\"]/div[1]/div/div/div[5]/span")));
 		driver.findElement(By.xpath(AdminBtn)).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(IPWhitelistBtn)).click();		
@@ -109,7 +112,8 @@ public class BankSetup extends Locators {
 		driver.findElement(By.name(Email)).sendKeys(EmailId);
 		driver.findElement(By.name(Password)).sendKeys(Passwrd);
 		driver.findElement(By.id(LoginBtn)).click();
-		Thread.sleep(3000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_content_container\"]/div[1]/div/div/div[5]/span")));
 		driver.findElement(By.xpath(AdminBtn)).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(UsrLog)).click();		
@@ -123,7 +127,8 @@ public class BankSetup extends Locators {
 		driver.findElement(By.name(Email)).sendKeys(EmailId);
 		driver.findElement(By.name(Password)).sendKeys(Passwrd);
 		driver.findElement(By.id(LoginBtn)).click();
-		Thread.sleep(3000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_content_container\"]/div[1]/div/div/div[5]/span")));
 		driver.findElement(By.xpath(AdminBtn)).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(EventLogBtn)).click();		
@@ -137,7 +142,8 @@ public class BankSetup extends Locators {
 		driver.findElement(By.name(Email)).sendKeys(EmailId);
 		driver.findElement(By.name(Password)).sendKeys(Passwrd);
 		driver.findElement(By.id(LoginBtn)).click();
-		Thread.sleep(3000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_content_container\"]/div[1]/div/div/div[5]/span")));
 		driver.findElement(By.xpath(AdminBtn)).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(ExceptionLogBtn)).click();		

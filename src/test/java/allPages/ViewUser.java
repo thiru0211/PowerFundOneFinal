@@ -74,10 +74,9 @@ public class ViewUser extends Locators{
 		driver.findElement(By.name(Email)).sendKeys(EmailId);
 		driver.findElement(By.name(Password)).sendKeys(Passwrd);
 		driver.findElement(By.id(LoginBtn)).click();
-		Thread.sleep(6000);
-		ele1=driver.findElement(By.xpath(AdminBtn));
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(AdminBtn)));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_content_container\"]/div[1]/div/div/div[5]/span")));
+		ele1=driver.findElement(By.xpath(AdminBtn));
 		ele1.click();
 		driver.findElement(By.xpath(ViewUserBtn)).click();
 	}

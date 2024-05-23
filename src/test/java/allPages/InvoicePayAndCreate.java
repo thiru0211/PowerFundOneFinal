@@ -20,6 +20,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
@@ -64,7 +65,8 @@ public class InvoicePayAndCreate extends Locators {
 		driver.findElement(By.name(Email)).sendKeys(EmailId);
 		driver.findElement(By.name(Password)).sendKeys(Passwrd);
 		driver.findElement(By.id(LoginBtn)).click();
-		Thread.sleep(3000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_content_container\"]/div[1]/div/div/div[5]/span")));
 		driver.findElement(By.xpath(CustomerBtn)).click();
 		Thread.sleep(3000);
 		driver.findElement(By.xpath(InvoicePayBtn)).click();
@@ -78,7 +80,8 @@ public class InvoicePayAndCreate extends Locators {
 		driver.findElement(By.name(Email)).sendKeys(EmailId);
 		driver.findElement(By.name(Password)).sendKeys(Passwrd);
 		driver.findElement(By.id(LoginBtn)).click();
-		Thread.sleep(3000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_content_container\"]/div[1]/div/div/div[5]/span")));
 		driver.findElement(By.xpath(CustomerBtn)).click();
 		driver.findElement(By.xpath(CretInvBtn)).click();
 	}
@@ -345,7 +348,9 @@ public class InvoicePayAndCreate extends Locators {
 		element.click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyEditCus)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyAddCusPort)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.name(IPChMntPyAddCusPortName)).sendKeys(IPChMntPortName);
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyAddCusPortClr)).click();
@@ -362,7 +367,9 @@ public class InvoicePayAndCreate extends Locators {
 		element.click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyEditCus)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyAddCusPort)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.name(IPChMntPyAddCusPortName)).sendKeys(IPChMntPortName);
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyAddCusPortSav)).click();
@@ -378,6 +385,7 @@ public class InvoicePayAndCreate extends Locators {
 		element.click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyEditCus)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyAddCusPort)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyAddCusPortCls)).click();
@@ -393,8 +401,11 @@ public class InvoicePayAndCreate extends Locators {
 		element.click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyEditCus)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyEdtCusPort)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyEdtCusPortClr)).click();
+		Thread.sleep(2000);
 		ele1 = driver.findElement(By.xpath(IPChMntPyEdtCusPortClr));
 		String text = ele1.getAttribute("value");
 		System.out.println(text);
@@ -417,6 +428,7 @@ public class InvoicePayAndCreate extends Locators {
 		element.click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyEditCus)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyEdtCusPort)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyEdtCusPortSav)).click();
@@ -431,8 +443,8 @@ public class InvoicePayAndCreate extends Locators {
 		act.click().build().perform();
 		element.click();
 		Thread.sleep(2000);
-
 		driver.findElement(By.xpath(IPChMntPyEditCus)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyEdtCusPort)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(IPChMntPyEdtCusPortCls)).click();
@@ -648,7 +660,7 @@ public class InvoicePayAndCreate extends Locators {
 		driver.findElement(By.xpath(IPChMntPyDocStup)).click();
 		driver.findElement(By.xpath(IPChMntPyDocStupUpld)).click();
 		Thread.sleep(2000);
-		String FilePath="C:\\Users\\thirumaran\\Desktop\\Screenshot 2024-03-06 105214.png";
+		String FilePath="C:\\Users\\thirumaran\\OneDrive\\Desktop\\New XLSX Worksheet.xlsx";
 		Robot robot = new Robot();
 		StringSelection selection = new StringSelection(FilePath);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
@@ -807,7 +819,7 @@ public class InvoicePayAndCreate extends Locators {
 		driver.findElement(By.xpath(IPQckUpld)).click();
 		driver.findElement(By.xpath(IPQckUpldFile)).click();
 		Thread.sleep(2000);
-		String FilePath="C:\\Users\\thirumaran\\Desktop\\Screenshot 2024-03-06 105214.png";
+		String FilePath="C:\\Users\\thirumaran\\OneDrive\\Desktop\\New XLSX Worksheet.xlsx";
 		Robot robot = new Robot();
 		StringSelection selection = new StringSelection(FilePath);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
@@ -889,6 +901,7 @@ public class InvoicePayAndCreate extends Locators {
 		Actions act=new Actions(driver);
 		act.click().build().perform();
 		element.click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(CIViewCusAddLine)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(CIViewCusSavBtn)).click();

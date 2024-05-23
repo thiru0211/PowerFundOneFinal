@@ -67,12 +67,11 @@ public class InvestorSetup extends Locators {
 		driver.findElement(By.name(Email)).sendKeys(EmailId);
 		driver.findElement(By.name(Password)).sendKeys(Passwrd);
 		driver.findElement(By.id(LoginBtn)).click();
-		Thread.sleep(5000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_content_container\"]/div[1]/div/div/div[5]/span")));
 		driver.findElement(By.xpath(SetupBtn)).click();
 		Thread.sleep(5000);
 		ele2=driver.findElement(By.xpath(InvestorBtn));
-		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(InstallerBtn)));
 		ele2.click();
 	}
 

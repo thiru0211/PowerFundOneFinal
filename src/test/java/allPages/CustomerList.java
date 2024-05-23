@@ -70,13 +70,11 @@ public class CustomerList extends Locators {
 		driver.findElement(By.name(Email)).sendKeys(EmailId);
 		driver.findElement(By.name(Password)).sendKeys(Passwrd);
 		driver.findElement(By.id(LoginBtn)).click();
-		Thread.sleep(3000);
-		ele1=driver.findElement(By.xpath(CustomerBtn));
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(CustomerBtn)));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_content_container\"]/div[1]/div/div/div[5]/span")));
+		ele1=driver.findElement(By.xpath(CustomerBtn));
 		ele1.click();
 		ele2=driver.findElement(By.xpath(CusListBtn));
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(CusListBtn)));
 		ele2.click();
 	}
 
@@ -88,7 +86,8 @@ public class CustomerList extends Locators {
 		driver.findElement(By.name(Email)).sendKeys(EmailId);
 		driver.findElement(By.name(Password)).sendKeys(Passwrd);
 		driver.findElement(By.id(LoginBtn)).click();
-		Thread.sleep(3000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_content_container\"]/div[1]/div/div/div[5]/span")));
 		driver.findElement(By.xpath(CustomerBtn)).click();
 		driver.findElement(By.xpath(ACHFormBtn)).click();
 	}
@@ -129,7 +128,8 @@ public class CustomerList extends Locators {
 		CustomerListClick();
 		PropertyFileReader.propertyRead();
 		String CustPort=PropertyFileReader.propertymap.get("CustPort");
-		Thread.sleep(4000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_table_users\"]/tbody/tr[1]/td[10]/div/div/a")));
 		WebElement element = driver.findElement(By.xpath(CusLisActBtn));
 		Actions act=new Actions(driver);
 		act.click().build().perform();
@@ -236,6 +236,8 @@ public class CustomerList extends Locators {
 	public void TC05() throws InterruptedException {
 		CustomerListClick();
 		Thread.sleep(2000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_table_users\"]/tbody/tr[1]/td[10]/div/div/a")));
 		WebElement element = driver.findElement(By.xpath(CusLisActBtn));
 		Actions act=new Actions(driver);
 		act.click().build().perform();
@@ -254,6 +256,8 @@ public class CustomerList extends Locators {
 		CustomerListClick();
 		String CustInstDD=PropertyFileReader.propertymap.get("CustInstDD");
 		Thread.sleep(2000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_table_users\"]/tbody/tr[1]/td[10]/div/div/a")));
 		WebElement element = driver.findElement(By.xpath(CusLisActBtn));
 		Actions act=new Actions(driver);
 		act.click().build().perform();
@@ -280,6 +284,8 @@ public class CustomerList extends Locators {
 		String CustInstDD=PropertyFileReader.propertymap.get("CustInstDD");
 		String CustAddPortName=PropertyFileReader.propertymap.get("CustAddPortName");
 		Thread.sleep(2000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_table_users\"]/tbody/tr[1]/td[10]/div/div/a")));
 		WebElement element = driver.findElement(By.xpath(CusLisActBtn));
 		Actions act=new Actions(driver);
 		act.click().build().perform();
@@ -305,6 +311,8 @@ public class CustomerList extends Locators {
 		String CustInstDD=PropertyFileReader.propertymap.get("CustInstDD");
 		String CustAddPortName=PropertyFileReader.propertymap.get("CustAddPortName");
 		Thread.sleep(3000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_table_users\"]/tbody/tr[1]/td[10]/div/div/a")));
 		WebElement element = driver.findElement(By.xpath(CusLisActBtn));
 		Actions act=new Actions(driver);
 		act.click().build().perform();
@@ -328,6 +336,8 @@ public class CustomerList extends Locators {
 		String CustInstDD=PropertyFileReader.propertymap.get("CustInstDD");
 		String CustAddPortName=PropertyFileReader.propertymap.get("CustAddPortName");
 		Thread.sleep(3000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_table_users\"]/tbody/tr[1]/td[10]/div/div/a")));
 		WebElement element = driver.findElement(By.xpath(CusLisActBtn));
 		Actions act=new Actions(driver);
 		act.click().build().perform();
@@ -351,6 +361,8 @@ public class CustomerList extends Locators {
 		String CustPort=PropertyFileReader.propertymap.get("CustPort");
 		String ModifCustPort=PropertyFileReader.propertymap.get("ModifCustPort");
 		Thread.sleep(3000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_table_users\"]/tbody/tr[1]/td[10]/div/div/a")));
 		WebElement element = driver.findElement(By.xpath(CusLisActBtn));
 		Actions act=new Actions(driver);
 		act.click().build().perform();
@@ -377,6 +389,8 @@ public class CustomerList extends Locators {
 		String CustInstDD=PropertyFileReader.propertymap.get("CustInstDD");
 		String CustPort=PropertyFileReader.propertymap.get("CustPort");
 		Thread.sleep(3000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_table_users\"]/tbody/tr[1]/td[10]/div/div/a")));
 		WebElement element = driver.findElement(By.xpath(CusLisActBtn));
 		Actions act=new Actions(driver);
 		act.click().build().perform();
@@ -394,7 +408,8 @@ public class CustomerList extends Locators {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(CusAddPortClsBtn)).click();		
 	}
-
+	
+	//Repeat check
 	@Test(priority=12,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC12() throws InterruptedException {
 		CusAddDetailsFull();
@@ -409,6 +424,16 @@ public class CustomerList extends Locators {
 			ele3.sendKeys(ModifiedCusID+"0");
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(CusAddSavBtn)).click();
+			Thread.sleep(2000);
+			ele4=driver.findElement(By.xpath("//div[text()='Duplicate ID, Given Id already exists']"));
+			if(ele4.isDisplayed()) {
+				ele5=driver.findElement(By.name(CustID));
+				String ModifiedCusID1 = ele5.getAttribute("value");
+				ele6=driver.findElement(By.name(CustID));
+				ele6.sendKeys("1");
+				Thread.sleep(2000);
+				driver.findElement(By.xpath(CusAddSavBtn)).click();
+			}
 		}
 		else {
 			System.out.println("Details added sucessfully");
@@ -445,7 +470,9 @@ public class CustomerList extends Locators {
 		String CustBatt=PropertyFileReader.propertymap.get("CustBatt");
 		String CustWattPerPan=PropertyFileReader.propertymap.get("CustWattPerPan");
 		String CustInvBrnd=PropertyFileReader.propertymap.get("CustInvBrnd");
-		Thread.sleep(4000);
+		Thread.sleep(2000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_table_users\"]/tbody/tr[1]/td[10]/div/div/a")));
 		WebElement element = driver.findElement(By.xpath(CusLisActBtn));
 		Actions act=new Actions(driver);
 		act.click().build().perform();
@@ -463,7 +490,7 @@ public class CustomerList extends Locators {
 		ele2=driver.findElement(By.name(CusPort));
 		Select sel2=new Select(ele2);
 		sel2.selectByVisibleText("Test Portfolio(Unassigned)");
-		
+
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		String formattedDate = sdf.format(date);
@@ -514,10 +541,21 @@ public class CustomerList extends Locators {
 			ele7.sendKeys(ModifiedCusID+"0");
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(CusAddSavBtn)).click();
+			Thread.sleep(2000);
+			ele8=driver.findElement(By.xpath("//div[text()='Duplicate ID, Given Id already exists']"));
+			if(ele8.isDisplayed()) {
+				ele9=driver.findElement(By.name(CustID));
+				String ModifiedCusID1 = ele9.getAttribute("value");
+				WebElement elee=driver.findElement(By.name(CustID));
+				elee.sendKeys("1");
+				Thread.sleep(2000);
+				driver.findElement(By.xpath(CusAddSavBtn)).click();
+			}
 		}
 		else {
 			System.out.println("No duplicate message is shown");
 		}
+			Thread.sleep(2000);
 	}
 
 	@Test(priority=14,retryAnalyzer = ReRunFailedTestCase.class)
@@ -554,6 +592,8 @@ public class CustomerList extends Locators {
 		String CustWattPerPan=PropertyFileReader.propertymap.get("CustWattPerPan");
 		String CustInvBrnd=PropertyFileReader.propertymap.get("CustInvBrnd");
 		Thread.sleep(2000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_table_users\"]/tbody/tr[1]/td[10]/div/div/a")));
 		WebElement element = driver.findElement(By.xpath(CusLisActBtn));
 		Actions act=new Actions(driver);
 		act.click().build().perform();
@@ -569,7 +609,7 @@ public class CustomerList extends Locators {
 		ele2=driver.findElement(By.name(CusPort));
 		Select sel2=new Select(ele2);
 		sel2.selectByVisibleText("Test Portfolio(Unassigned)");
-		
+
 		Date date = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		String formattedDate = sdf.format(date);
@@ -620,16 +660,29 @@ public class CustomerList extends Locators {
 			ele7.sendKeys(ModifiedCusID+"0");
 			Thread.sleep(2000);
 			driver.findElement(By.xpath(CusAddSavBtn)).click();
+			Thread.sleep(2000);
+			ele8=driver.findElement(By.xpath("//div[text()='Duplicate ID, Given Id already exists']"));
+			if(ele8.isDisplayed()) {
+				ele9=driver.findElement(By.name(CustID));
+				String ModifiedCusID1 = ele9.getAttribute("value");
+				WebElement elee=driver.findElement(By.name(CustID));
+				elee.sendKeys("1");
+				Thread.sleep(2000);
+				driver.findElement(By.xpath(CusAddSavBtn)).click();
+			}
 		}
 		else {
 			System.out.println("No duplicate message is shown");
 		}
+			Thread.sleep(2000);
 	}
 
 	@Test(priority=15,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC15() throws InterruptedException {
 		CustomerListClick();
 		Thread.sleep(3000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_table_users\"]/tbody/tr[1]/td[10]/div/div/a")));
 		WebElement element = driver.findElement(By.xpath(CusLisActBtn));
 		Actions act=new Actions(driver);
 		act.click().build().perform();
@@ -660,6 +713,7 @@ public class CustomerList extends Locators {
 	@Test(priority=18,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC18() throws InterruptedException {
 		CustomerListClick();
+		Thread.sleep(2000);
 		String CusBankNameDD=PropertyFileReader.propertymap.get("CusBankNameDD");
 		String CusListName=PropertyFileReader.propertymap.get("CusListName");
 		ele1 = driver.findElement(By.name(CusBankDD));
@@ -674,6 +728,7 @@ public class CustomerList extends Locators {
 	@Test(priority=19,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC19() throws InterruptedException {
 		CustomerListClick();
+		Thread.sleep(2000);
 		String CusBankNameDD=PropertyFileReader.propertymap.get("CusBankNameDD");
 		String CusListName=PropertyFileReader.propertymap.get("CusListName");
 		String CusNotes=PropertyFileReader.propertymap.get("CusNotes");
@@ -805,7 +860,9 @@ public class CustomerList extends Locators {
 		act.click().build().perform();
 		element.click();
 		driver.findElement(By.xpath(CusEditCusBtn)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(CusEditInstAddBtn)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.name(CusEditPortName)).sendKeys(CustPort);
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(CusEditPortClrBtn)).click();	
@@ -842,7 +899,9 @@ public class CustomerList extends Locators {
 		act.click().build().perform();
 		element.click();
 		driver.findElement(By.xpath(CusEditCusBtn)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(CusEditPortEditBtn)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(CusEditPortSavBtn)).click();	
 	}
 
@@ -862,6 +921,7 @@ public class CustomerList extends Locators {
 		act.click().build().perform();
 		element.click();
 		driver.findElement(By.xpath(CusEditCusBtn)).click();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(CusEditPortEditBtn)).click();
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(CusEditPortClseBtn)).click();	
@@ -1146,13 +1206,7 @@ public class CustomerList extends Locators {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(CusEditCRMMonitBtn)).click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath(CusEditCRMUpdBtn)).click();
-		Thread.sleep(2000);
-
-
-
 		//		//name in CRM error toast check
-		//		
 		//		ele1=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[2]/div[2]/form/div/div[3]/div[2]/div[2]/div"));
 		//		//production escalation error toast check
 		//		ele3=driver.findElement(By.name("productionescalation"));
@@ -1189,12 +1243,14 @@ public class CustomerList extends Locators {
 			ele3.sendKeys(Keys.BACK_SPACE);
 		}
 		driver.findElement(By.xpath(IPChMntPyMonCRMUpd)).click();
-		//	driver.switchTo().alert().accept();
-		//Mandatory message check for multiple elements at a same time
-		List<WebElement> elements = driver.findElements(By.cssSelector("div[style='color: red;']"));
-		for (WebElement ele1 : elements) {
-			System.out.println(ele1.getText());
+		ele4=driver.findElement(By.xpath("//*[@id=\"kt_body\"]/div[2]/div/div[2]/div/div[2]/div/div/div[3]/button"));
+		if(ele4.isDisplayed()) {
+			System.out.println("Error Message is show");
 		}
+		else {
+			System.out.println("Error message is not show");
+		}
+		ele4.click();
 	}
 
 	@Test(priority=42,retryAnalyzer = ReRunFailedTestCase.class, description = "This function is not working properly in the webpage")
@@ -1327,7 +1383,7 @@ public class CustomerList extends Locators {
 		Thread.sleep(2000);
 		ele1 = driver.findElement(By.name(CusBankDD));
 		Select sel=new Select(ele1);
-		sel.selectByVisibleText("Testingg");
+		sel.selectByVisibleText("LA SOLAR");
 		Thread.sleep(2000);
 		//driver.findElement(By.id(CusListNameBox)).sendKeys(CusListName);
 		driver.findElement(By.xpath(CusNameEditBtn)).click();
@@ -1337,13 +1393,7 @@ public class CustomerList extends Locators {
 		//		js.executeScript("arguments[0].scrollIntoView(true);", ele1);
 		ele1.click();
 		Thread.sleep(2000);
-		ele2=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[2]/div[2]/div[5]/div[3]/p"));
-		if(ele2.isDisplayed()) {
-			System.out.println("No Recent activity is found");
-		}
-		else {
 			driver.findElement(By.xpath(CusEditViewClseBtn)).click();		
-		}
 	}
 
 	@Test(priority=50,retryAnalyzer = ReRunFailedTestCase.class)
@@ -1371,9 +1421,11 @@ public class CustomerList extends Locators {
 		String ACHSrch=PropertyFileReader.propertymap.get("ACHSrch");
 		String ACHAccType=PropertyFileReader.propertymap.get("ACHAccType");
 		String ACHAccStus=PropertyFileReader.propertymap.get("ACHAccStus");
+		Thread.sleep(2000);
 		ele1=driver.findElement(By.xpath(ACHBankNameDD));
 		Select sel1=new Select(ele1);
 		sel1.selectByVisibleText(ACHBankDD);
+		Thread.sleep(2000);
 		ele2=driver.findElement(By.name(ACHType));
 		Select sel2=new Select(ele2);
 		sel2.selectByVisibleText("ACH Pending");
@@ -1409,6 +1461,7 @@ public class CustomerList extends Locators {
 	@Test(priority=52,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC53() throws InterruptedException, AWTException {
 		ACHFormClick();
+		Thread.sleep(2000);
 		String ACHBankDD1=PropertyFileReader.propertymap.get("ACHBankDD1");
 		String ACHSrch=PropertyFileReader.propertymap.get("ACHSrch");
 		String ACHAccType=PropertyFileReader.propertymap.get("ACHAccType");
@@ -1416,12 +1469,15 @@ public class CustomerList extends Locators {
 		ele1=driver.findElement(By.xpath(ACHBankNameDD));
 		Select sel1=new Select(ele1);
 		sel1.selectByVisibleText(ACHBankDD1);
+		Thread.sleep(2000);
 		ele2=driver.findElement(By.name(ACHType));
 		Select sel2=new Select(ele2);
-		sel2.selectByVisibleText(ACHAccType);
+		sel2.selectByVisibleText("ACH Pending");
+		Thread.sleep(2000);
 		ele3=driver.findElement(By.name(ACHStatus));
 		Select sel3=new Select(ele3);
 		sel3.selectByVisibleText(ACHAccStus);
+		Thread.sleep(2000);
 		//	driver.findElement(By.xpath(ACHBnkSrch)).sendKeys(ACHSrch);
 		driver.findElement(By.xpath(ACHNameEditBtn)).click();
 		Thread.sleep(2000);
@@ -1450,18 +1506,20 @@ public class CustomerList extends Locators {
 		ele1=driver.findElement(By.xpath(ACHBankNameDD));
 		Select sel1=new Select(ele1);
 		sel1.selectByVisibleText(ACHBankDD1);
+		Thread.sleep(2000);
 		ele2=driver.findElement(By.name(ACHType));
 		Select sel2=new Select(ele2);
-		sel2.selectByVisibleText(ACHAccType);
+		sel2.selectByVisibleText("ACH Pending");
+		Thread.sleep(2000);
 		ele3=driver.findElement(By.name(ACHStatus));
 		Select sel3=new Select(ele3);
 		sel3.selectByVisibleText(ACHAccStus);
+		Thread.sleep(2000);
 		//driver.findElement(By.xpath(ACHBnkSrch)).sendKeys(ACHSrch);
 		driver.findElement(By.xpath(ACHNameEditBtn)).click();
 		driver.findElement(By.xpath(ACHEditManEtry)).click();
 		driver.findElement(By.xpath(ACHEditUpdBtn)).click();
 		Thread.sleep(4000);
-
 		ele4=driver.findElement(By.name(ACHNamOnAcc));
 		ele4.clear();
 		ele4.sendKeys(ACHNameOnAcc);
@@ -1495,12 +1553,15 @@ public class CustomerList extends Locators {
 		String ACHSrch=PropertyFileReader.propertymap.get("ACHSrch");
 		String ACHAccType=PropertyFileReader.propertymap.get("ACHAccType");
 		String ACHAccStus=PropertyFileReader.propertymap.get("ACHAccStus");
+		Thread.sleep(2000);
 		ele1=driver.findElement(By.xpath(ACHBankNameDD));
 		Select sel1=new Select(ele1);
 		sel1.selectByVisibleText(ACHBankDD1);
+		Thread.sleep(2000);
 		ele2=driver.findElement(By.name(ACHType));
 		Select sel2=new Select(ele2);
-		sel2.selectByVisibleText(ACHAccType);
+		sel2.selectByVisibleText("ACH Pending");
+		Thread.sleep(2000);
 		ele3=driver.findElement(By.name(ACHStatus));
 		Select sel3=new Select(ele3);
 		sel3.selectByVisibleText(ACHAccStus);
@@ -1516,12 +1577,15 @@ public class CustomerList extends Locators {
 		String ACHSrch=PropertyFileReader.propertymap.get("ACHSrch");
 		String ACHAccType=PropertyFileReader.propertymap.get("ACHAccType");
 		String ACHAccStus=PropertyFileReader.propertymap.get("ACHAccStus");
+		Thread.sleep(2000);
 		ele1=driver.findElement(By.xpath(ACHBankNameDD));
 		Select sel1=new Select(ele1);
 		sel1.selectByVisibleText(ACHBankDD1);
+		Thread.sleep(2000);
 		ele2=driver.findElement(By.name(ACHType));
 		Select sel2=new Select(ele2);
-		sel2.selectByVisibleText(ACHAccType);
+		sel2.selectByVisibleText("ACH Pending");
+		Thread.sleep(2000);
 		ele3=driver.findElement(By.name(ACHStatus));
 		Select sel3=new Select(ele3);
 		sel3.selectByVisibleText(ACHAccStus);
@@ -1531,6 +1595,14 @@ public class CustomerList extends Locators {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(ACHSndToCus)).click();
 		driver.findElement(By.xpath(ACHEditUpdBtn)).click();
+		Thread.sleep(4000);
+		ele4=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[2]/div[1]/div[2]/div[1]/div/input"));
+		String text = ele4.getText();
+		System.out.println(text);
+		ele4.clear();
+		Thread.sleep(2000);
+		ele4.sendKeys("0211thiru@gmail.com");
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(ACHSndBtn)).click();
 	}
 
@@ -1542,12 +1614,15 @@ public class CustomerList extends Locators {
 		String ACHSrch=PropertyFileReader.propertymap.get("ACHSrch");
 		String ACHAccType=PropertyFileReader.propertymap.get("ACHAccType");
 		String ACHAccStus=PropertyFileReader.propertymap.get("ACHAccStus");
+		Thread.sleep(2000);
 		ele1=driver.findElement(By.xpath(ACHBankNameDD));
 		Select sel1=new Select(ele1);
 		sel1.selectByVisibleText(ACHBankDD1);
+		Thread.sleep(2000);
 		ele2=driver.findElement(By.name(ACHType));
 		Select sel2=new Select(ele2);
-		sel2.selectByVisibleText(ACHAccType);
+		sel2.selectByVisibleText("ACH Pending");
+		Thread.sleep(2000);
 		ele3=driver.findElement(By.name(ACHStatus));
 		Select sel3=new Select(ele3);
 		sel3.selectByVisibleText(ACHAccStus);
@@ -1572,12 +1647,15 @@ public class CustomerList extends Locators {
 		String ACHSrch=PropertyFileReader.propertymap.get("ACHSrch");
 		String ACHAccType=PropertyFileReader.propertymap.get("ACHAccType");
 		String ACHAccStus=PropertyFileReader.propertymap.get("ACHAccStus");
+		Thread.sleep(2000);
 		ele1=driver.findElement(By.xpath(ACHBankNameDD));
 		Select sel1=new Select(ele1);
 		sel1.selectByVisibleText(ACHBankDD1);
+		Thread.sleep(2000);
 		ele2=driver.findElement(By.name(ACHType));
 		Select sel2=new Select(ele2);
-		sel2.selectByVisibleText(ACHAccType);
+		sel2.selectByVisibleText("ACH Pending");
+		Thread.sleep(2000);
 		ele3=driver.findElement(By.name(ACHStatus));
 		Select sel3=new Select(ele3);
 		sel3.selectByVisibleText(ACHAccStus);
@@ -1713,12 +1791,15 @@ public class CustomerList extends Locators {
 		String ACHSrch=PropertyFileReader.propertymap.get("ACHSrch");
 		String ACHAccType=PropertyFileReader.propertymap.get("ACHAccType");
 		String ACHAccStus=PropertyFileReader.propertymap.get("ACHAccStus");
+		Thread.sleep(2000);
 		ele1=driver.findElement(By.xpath(ACHBankNameDD));
 		Select sel1=new Select(ele1);
 		sel1.selectByVisibleText(ACHBankDD1);
+		Thread.sleep(2000);
 		ele2=driver.findElement(By.name(ACHType));
 		Select sel2=new Select(ele2);
-		sel2.selectByVisibleText(ACHAccType);
+		sel2.selectByVisibleText("ACH Pending");
+		Thread.sleep(2000);
 		ele3=driver.findElement(By.name(ACHStatus));
 		Select sel3=new Select(ele3);
 		sel3.selectByVisibleText(ACHAccStus);
@@ -1749,9 +1830,11 @@ public class CustomerList extends Locators {
 		ele1=driver.findElement(By.xpath(ACHBankNameDD));
 		Select sel1=new Select(ele1);
 		sel1.selectByVisibleText(ACHBankDD1);
+		Thread.sleep(2000);
 		ele2=driver.findElement(By.name(ACHType));
 		Select sel2=new Select(ele2);
-		sel2.selectByVisibleText(ACHAccType);
+		sel2.selectByVisibleText("ACH Pending");
+		Thread.sleep(2000);
 		ele3=driver.findElement(By.name(ACHStatus));
 		Select sel3=new Select(ele3);
 		sel3.selectByVisibleText(ACHAccStus);
@@ -1762,6 +1845,14 @@ public class CustomerList extends Locators {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(ACHSndToCus)).click();
 		driver.findElement(By.xpath(ACHEditUpdBtn)).click();
+		Thread.sleep(4000);
+		ele4=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[2]/div[1]/div[2]/div[1]/div/input"));
+		String text = ele4.getText();
+		System.out.println(text);
+		ele4.clear();
+		Thread.sleep(2000);
+		ele4.sendKeys("0211thiru@gmail.com");
+		Thread.sleep(2000);
 		//request box
 		ele4=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[2]/div/div[2]/textarea"));
 		ele4.clear();
@@ -1777,12 +1868,15 @@ public class CustomerList extends Locators {
 		String ACHSrch1=PropertyFileReader.propertymap.get("ACHSrch1");
 		String ACHAccType=PropertyFileReader.propertymap.get("ACHAccType");
 		String ACHAccStus=PropertyFileReader.propertymap.get("ACHAccStus");
+		Thread.sleep(2000);
 		ele1=driver.findElement(By.xpath(ACHBankNameDD));
 		Select sel1=new Select(ele1);
 		sel1.selectByVisibleText(ACHBankDD1);
+		Thread.sleep(2000);
 		ele2=driver.findElement(By.name(ACHType));
 		Select sel2=new Select(ele2);
 		sel2.selectByVisibleText("ACH Pending");
+		Thread.sleep(2000);
 		ele3=driver.findElement(By.name(ACHStatus));
 		Select sel3=new Select(ele3);
 		sel3.selectByVisibleText(ACHAccStus);
@@ -1811,12 +1905,15 @@ public class CustomerList extends Locators {
 		String ACHSrch2=PropertyFileReader.propertymap.get("ACHSrch2");
 		String ACHAccType=PropertyFileReader.propertymap.get("ACHAccType");
 		String ACHAccStus=PropertyFileReader.propertymap.get("ACHAccStus");
+		Thread.sleep(2000);
 		ele1=driver.findElement(By.xpath(ACHBankNameDD));
 		Select sel1=new Select(ele1);
 		sel1.selectByVisibleText(ACHBankDD1);
+		Thread.sleep(2000);
 		ele2=driver.findElement(By.name(ACHType));
 		Select sel2=new Select(ele2);
-		sel2.selectByVisibleText(ACHAccType);
+		sel2.selectByVisibleText("ACH Pending");
+		Thread.sleep(2000);
 		ele3=driver.findElement(By.name(ACHStatus));
 		Select sel3=new Select(ele3);
 		sel3.selectByVisibleText(ACHAccStus);
@@ -1827,6 +1924,14 @@ public class CustomerList extends Locators {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(ACHSndToSlsPerBtn)).click();
 		driver.findElement(By.xpath(ACHEditUpdBtn)).click();
+		Thread.sleep(4000);
+		ele4=driver.findElement(By.xpath("//*[@id=\"kt_content_container\"]/div/div[2]/div/div[2]/div[3]/div/input"));
+		String text = ele4.getText();
+		System.out.println(text);
+		ele4.clear();
+		Thread.sleep(2000);
+		ele4.sendKeys("0211thiru@gmail.com");
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(ACHSndToSlsSndBtn)).click();
 	}
 
@@ -1837,12 +1942,15 @@ public class CustomerList extends Locators {
 		String ACHSrch2=PropertyFileReader.propertymap.get("ACHSrch2");
 		String ACHAccType=PropertyFileReader.propertymap.get("ACHAccType");
 		String ACHAccStus=PropertyFileReader.propertymap.get("ACHAccStus");
+		Thread.sleep(2000);
 		ele1=driver.findElement(By.xpath(ACHBankNameDD));
 		Select sel1=new Select(ele1);
 		sel1.selectByVisibleText(ACHBankDD1);
+		Thread.sleep(2000);
 		ele2=driver.findElement(By.name(ACHType));
 		Select sel2=new Select(ele2);
-		sel2.selectByVisibleText(ACHAccType);
+		sel2.selectByVisibleText("ACH Pending");
+		Thread.sleep(2000);
 		ele3=driver.findElement(By.name(ACHStatus));
 		Select sel3=new Select(ele3);
 		sel3.selectByVisibleText(ACHAccStus);
@@ -1869,12 +1977,15 @@ public class CustomerList extends Locators {
 		String ACHAccType=PropertyFileReader.propertymap.get("ACHAccType");
 		String ACHAccStus=PropertyFileReader.propertymap.get("ACHAccStus");
 		String ACHPayDate=PropertyFileReader.propertymap.get("ACHPayDate");
+		Thread.sleep(2000);
 		ele1=driver.findElement(By.xpath(ACHBankNameDD));
 		Select sel1=new Select(ele1);
 		sel1.selectByVisibleText(ACHBankDD1);
+		Thread.sleep(2000);
 		ele2=driver.findElement(By.name(ACHType));
 		Select sel2=new Select(ele2);
-		sel2.selectByVisibleText(ACHAccType);
+		sel2.selectByVisibleText("ACH Pending");
+		Thread.sleep(2000);
 		ele3=driver.findElement(By.name(ACHStatus));
 		Select sel3=new Select(ele3);
 		sel3.selectByVisibleText(ACHAccStus);
@@ -1922,9 +2033,11 @@ public class CustomerList extends Locators {
 		ele1=driver.findElement(By.xpath(ACHBankNameDD));
 		Select sel1=new Select(ele1);
 		sel1.selectByVisibleText(ACHBankDD1);
+		Thread.sleep(2000);
 		ele2=driver.findElement(By.name(ACHType));
 		Select sel2=new Select(ele2);
-		sel2.selectByVisibleText(ACHAccType);
+		sel2.selectByVisibleText("ACH Pending");
+		Thread.sleep(2000);
 		ele3=driver.findElement(By.name(ACHStatus));
 		Select sel3=new Select(ele3);
 		sel3.selectByVisibleText(ACHAccStus);
@@ -1993,9 +2106,11 @@ public class CustomerList extends Locators {
 		ele1=driver.findElement(By.xpath(ACHBankNameDD));
 		Select sel1=new Select(ele1);
 		sel1.selectByVisibleText(ACHBankDD);
+		Thread.sleep(2000);
 		ele2=driver.findElement(By.name(ACHType));
 		Select sel2=new Select(ele2);
-		sel2.selectByVisibleText(ACHAccType);
+		sel2.selectByVisibleText("ACH Pending");
+		Thread.sleep(2000);
 		ele3=driver.findElement(By.name(ACHStatus));
 		Select sel3=new Select(ele3);
 		sel3.selectByVisibleText(ACHAccStus);
@@ -2026,9 +2141,11 @@ public class CustomerList extends Locators {
 		ele1=driver.findElement(By.xpath(ACHBankNameDD));
 		Select sel1=new Select(ele1);
 		sel1.selectByVisibleText(ACHBankDD);
+		Thread.sleep(2000);
 		ele2=driver.findElement(By.name(ACHType));
 		Select sel2=new Select(ele2);
-		sel2.selectByVisibleText(ACHAccType);
+		sel2.selectByVisibleText("ACH Pending");
+		Thread.sleep(2000);
 		ele3=driver.findElement(By.name(ACHStatus));
 		Select sel3=new Select(ele3);
 		sel3.selectByVisibleText(ACHAccStus);

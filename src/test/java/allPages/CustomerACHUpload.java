@@ -17,6 +17,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
@@ -61,7 +62,8 @@ public class CustomerACHUpload extends Locators {
 		driver.findElement(By.name(Email)).sendKeys(EmailId);
 		driver.findElement(By.name(Password)).sendKeys(Passwrd);
 		driver.findElement(By.id(LoginBtn)).click();
-		Thread.sleep(3000);
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_content_container\"]/div[1]/div/div/div[5]/span")));
 		driver.findElement(By.xpath(CustomerBtn)).click();
 		driver.findElement(By.xpath(ACHUploadBtn)).click();
 	}
@@ -94,7 +96,7 @@ public class CustomerACHUpload extends Locators {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath(ACHUploadFileBtn)).click();
 		Thread.sleep(2000);
-		String FilePath="C:\\Users\\thirumaran\\Desktop\\Screenshot 2024-03-06 105214.png";
+		String FilePath="C:\\Users\\thirumaran\\OneDrive\\Desktop\\Screenshot 2024-03-06 105214.png";
 		Robot robot = new Robot();
 		StringSelection selection = new StringSelection(FilePath);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
@@ -135,7 +137,7 @@ public class CustomerACHUpload extends Locators {
 		sel.selectByVisibleText(ACHInstlrDD);
 		driver.findElement(By.xpath(ACHUploadFileBtn)).click();
 		Thread.sleep(2000);
-		String FilePath="C:\\Users\\thirumaran\\Desktop\\Screenshot 2024-03-06 105214.png";
+		String FilePath="C:\\Users\\thirumaran\\OneDrive\\Desktop\\Screenshot 2024-03-06 105214.png";
 		Robot robot = new Robot();
 		StringSelection selection = new StringSelection(FilePath);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
@@ -152,7 +154,10 @@ public class CustomerACHUpload extends Locators {
 	@Test(priority = 7,retryAnalyzer = ReRunFailedTestCase.class)
 	public void TC07() throws InterruptedException, AWTException {
 		ACHUploadClick();
+		Thread.sleep(2000);
 		driver.findElement(By.xpath(CusListBtn)).click();
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_table_users\"]/tbody/tr[1]/td[10]/div/div/a")));
 		Thread.sleep(2000);
 		WebElement element = driver.findElement(By.xpath(CusLisActBtn));
 		Actions act=new Actions(driver);
@@ -180,7 +185,7 @@ public class CustomerACHUpload extends Locators {
 		driver.findElement(By.xpath(CusListExclUpldFilUpld)).click();
 		Thread.sleep(2000);
 		
-		String FilePath="C:\\Users\\thirumaran\\Desktop\\Screenshot 2024-03-06 105214.png";
+		String FilePath="C:\\Users\\thirumaran\\OneDrive\\Desktop\\Screenshot 2024-03-06 105214.png";
 		Robot robot = new Robot();
 		StringSelection selection = new StringSelection(FilePath);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
@@ -212,7 +217,7 @@ public class CustomerACHUpload extends Locators {
 		sel.selectByVisibleText(ACHInstlrDD);
 		driver.findElement(By.xpath(CusListExclUpldFilUpld)).click();
 		Thread.sleep(2000);
-		String FilePath="C:\\Users\\thirumaran\\Desktop\\Screenshot 2024-03-06 105214.png";
+		String FilePath="C:\\Users\\thirumaran\\OneDrive\\Desktop\\Screenshot 2024-03-06 105214.png";
 		Robot robot = new Robot();
 		StringSelection selection = new StringSelection(FilePath);
 		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);

@@ -71,7 +71,7 @@ public class AllReportModules extends Locators{
 		driver.findElement(By.id(LoginBtn)).click();
 		Thread.sleep(5000);
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofMinutes(1));
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(ReportsBtn)));
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"kt_content_container\"]/div[1]/div/div/div[5]/span")));
 		ele1=driver.findElement(By.xpath(ReportsBtn));
 		ele1.click();
 		driver.findElement(By.xpath(OSReportBtn)).click();
