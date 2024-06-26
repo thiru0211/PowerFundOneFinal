@@ -44,7 +44,7 @@ public class AllReportModules extends Locators{
 		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(1));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
 		//driver.get("http://192.168.1.36:90/#/auth");
-		driver.get("https://ezeemx.com/CGIV2/auth");
+		driver.get("https://www.hedgeonline.us/CGI/auth");
 		ExtentSparkReporter spark=new ExtentSparkReporter("target/Spark.html");
 		extent.attachReporter(spark);
 		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");

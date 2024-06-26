@@ -2,32 +2,24 @@ package allPages;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Iterator;
 import java.util.Properties;
 import java.util.Scanner;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.io.FileHandler;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import com.github.dockerjava.transport.DockerHttpClient.Request.Method;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -40,14 +32,13 @@ public class Login extends Locators{
 		// TODO Auto-generated method stub
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions option=new ChromeOptions();
-		option.addArguments("--headless=new");
+		//option.addArguments("--headless=new");
 		driver=new ChromeDriver(option);
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(1));
+		driver.manage().timeouts().implicitlyWait(Duration.ofMinutes(2));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
 		//driver.get("http://192.168.1.36:90/#/auth");
-		driver.get("https://ezeemx.com/CGIV2/auth");
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofMinutes(1));
+		driver.get("https://www.hedgeonline.us/CGI/auth");
 		File file=new File("C:\\Users\\thirumaran\\eclipse-workspace\\PowerFundOnee\\Data.properties");
 		FileInputStream FIS=new FileInputStream(file);
 		Properties prop=new Properties();
